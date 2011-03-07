@@ -4,4 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-Nxface::Application.load_tasks
+Xingjibuy::Application.load_tasks

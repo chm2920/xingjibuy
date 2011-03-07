@@ -1,0 +1,48 @@
+class Admin::DealsController < Admin::AdminBackEndController
+  
+  before_filter :set_cur_panel_active, :except => ["new"]
+  
+  def index
+    @deals = Deal.all
+  end
+
+  def new
+    @deal = Deal.new
+    set_panel_active("SiteSettings", "deal_new")
+  end
+
+  def edit
+    @deal = Deal.find(params[:id])
+  end
+  
+  def create
+    @deal = Deal.new(params[:deal])
+    if @deal.save
+      redirect_to :action => "index"
+    else
+      render :action => "new"
+    end
+  end
+
+  def update
+    @deal = Deal.find(params[:id])
+    if @deal.update_attributes(params[:deal])
+      redirect_to :action => "index"
+    else
+      render :action => "edit"
+    end
+  end
+
+  def destroy
+    @deal = Deal.find(params[:id])
+    @deal.destroy
+    redirect_to :action => "index"
+  end
+  
+private
+
+  def set_cur_panel_active
+    set_panel_active("SiteSettings", "deals")
+  end
+  
+end

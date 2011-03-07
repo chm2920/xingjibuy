@@ -1,0 +1,24 @@
+
+	<h1>团购管理</h1>
+	<div class="FilterMenu">
+		<a href="/admin/deals/new" class="SmallButton">添加团购</a>
+	</div>
+	<table id="Nodes" class="AltColumns">
+		<thead>
+			<tr>
+				<th>名称</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @deals.each do |deal| %>
+			<tr class="Alt">
+				<td><strong><%= deal.title %></strong></td>
+				<td>
+					<a href="<%= edit_admin_deal_path(deal) %>" class="SmallButton">修改</a>
+					<%= link_to '删除', admin_deal_path(deal), :confirm => '确认要删除吗?', :method => :delete, :class => "SmallButton" %>
+				</td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>

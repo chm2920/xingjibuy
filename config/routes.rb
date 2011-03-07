@@ -1,25 +1,21 @@
 Xingjibuy::Application.routes.draw do
 
-  resources :tuans
+  resources :deals
 
   get 'kindeditor/images_list'
-
   post 'kindeditor/upload'
 
-  resources :nodes
-
-  resources :topic_categories
-
-  resources :topics do
-    member do
-      post :comment
-    end
-    collection do
-      get :search
-    end
-  end
-
   resources :users
+  
+  #get "about"
+  match "about" => "about#index"
+  match "faq" => "about#faq"
+  match "rule" => "about#rule"
+  match "blog" => "about#blog"
+  match "contact" => "about#contact"
+  match "private" => "about#private"
+  match "commitment" => "about#commitment"
+  match "terms" => "about#terms"
   
   match "login" => "users#login"
   post "users/login_rst"
@@ -28,31 +24,15 @@ Xingjibuy::Application.routes.draw do
   match "reg_rst" => "users#reg_rst"
   match "reg_re" => "users#reg_re"
   
-  match "profile/admin" => "users#edit"
-  match "profile/:id/topics" => "users#topics"
-  match "profile/:id/comments" => "users#comments"
-  match "profile/:id" => "users#show"
-  match "topic/:id" => "topics#show"
-  match "bookmark/:id" => "bookmarks#show"
-  match "category/:id" => "topic_categories#show"
-  
-  match "search" => "topics#search"
-  
-  match "post/topic" => "topics#new"
-  match "post/bookmark" => "bookmarks#new"
-  
+  match "search" => "tuans#search"
+    
   match "admin" => "admin/dashboard#index"
   
   namespace :admin do    
     get "dashboard"
-    resources :nodes    
-    resources :topic_categories    
-    resources :topics    
-    resources :bookmarks    
-    resources :users    
+    resources :deals
+    resources :users
     post "users/index"
-    post "topics/index"
-    post "bookmarks/index"
   end
 
   root :to => "start#index"
