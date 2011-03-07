@@ -1,6 +1,6 @@
 development:
   adapter: sqlite3
-  database: db/nxface.sqlite3
+  database: db/xingjibuy.sqlite3
   pool: 5
   timeout: 5000
 
@@ -12,6 +12,6 @@ test:
 
 production:
   adapter: sqlite3
-  database: db/nxface.sqlite3
+  database: db/xingjibuy.sqlite3
   pool: 5
   timeout: 5000

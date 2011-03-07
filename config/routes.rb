@@ -1,4 +1,4 @@
-Nxface::Application.routes.draw do
+Xingjibuy::Application.routes.draw do
 
   resources :tuans
 
