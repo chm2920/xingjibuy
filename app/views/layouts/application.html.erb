@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>星吉团 - 宁夏团购网站，高品质低折扣 - 宁夏最好的团购网站</title>
+  <%= stylesheet_link_tag "common", "main", "willpaginate" %>
+  <%#= kindeditor_javacript_include_tag %>
+  <%= csrf_meta_tag %>
+  <!--[if IE 6]>
+	<SCRIPT src="/javascripts/iepng.js"></SCRIPT>
+	<SCRIPT>
+	DD_belatedPNG.fix('.buy,img');
+	DD_belatedPNG.fix('.btn_buy,img');
+	DD_belatedPNG.fix('.box,img');
+	DD_belatedPNG.fix('.tipping_point,img');
+	DD_belatedPNG.fix('.progress_bar,img');
+	DD_belatedPNG.fix('.btnrss,img');
+	DD_belatedPNG.fix('.bg_tiebox,img');
+	DD_belatedPNG.fix('.d_top,img');
+	DD_belatedPNG.fix('.d_main,img');
+	DD_belatedPNG.fix('.d_bottom,img');
+	DD_belatedPNG.fix('.btn_buylove,img');
+	DD_belatedPNG.fix('.backg,img');
+	DD_belatedPNG.fix('.jxz,img');
+	DD_belatedPNG.fix('.no,img');
+	DD_belatedPNG.fix('.share,img');
+	DD_belatedPNG.fix('.cityli_header,img');
+	DD_belatedPNG.fix('.cityli_center,img');
+	DD_belatedPNG.fix('.trip_buy,img');
+	DD_belatedPNG.fix('.btn_buybless,img');
+	DD_belatedPNG.fix('.btn_buylove2,img');
+	DD_belatedPNG.fix('.btn_choujiang,img');
+	DD_belatedPNG.fix('.btn_reports,img');
+	</SCRIPT>
+	<![endif]-->
+</head>
+<body>
+	
+<div id="Container">
+	<div id="Header">
+		<div class="wapper">
+			<div id="Head" class="clearfix">
+				<div class="logo"><a href="/"><img src="/images/logo.png" /></a></div>
+				<ul id="Menu">
+					<li><a href="/">宁夏团购网！银川团购网！</a></li>
+				</ul>
+				<div class="login">
+					<a href="/login">登录</a><a href="/reg">注册</a>
+				</div>
+			</div>
+			<div id="Nav">
+				<ul class="NavList">
+					<li><a href="/">今日团购</a></li>
+					<li><a href="/tuans">正在进行</a></li>
+					<li><a href="#">往期团购</a></li>
+					<li><a href="#">常见问题</a></li>
+				</ul>
+				<div class="Search">
+					<input type="text" name="product" value="请输入团购商品名称..." class="SInput" />
+					<input type="submit" name="submit" value="搜索" class="SSubmit" />
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="PageBody" class="clearfix">
+		<%= yield %>
+	</div>
+	<div id="Footer">
+		<div class="wapper">
+			<div id="Foot">
+				<div class="clearfix">
+					<ul>
+						<li>
+							<span>用户帮助</span>
+							● <a href="/faq.php">常见问题</a><br>
+							● <a href="/rule.php">玩转星吉团</a><br>
+						</li>					
+						<li>
+							<span>获取更新</span>
+							● <a href="/subscribe.php">团长Blog</a>
+						</li>					
+						<li>
+							<span>商务合作</span>
+							● <a href="/stores/commit.php?act=sp" target="_blank">提供团购信息</a><br>
+						</li>					
+						<li>
+							<span>公司信息</span>
+							● <a href="/about.php">关于星吉团</a><br>
+							● <a href="/rule.php">隐私条款</a><br>
+							● <a href="/about.php?act=press">承诺与保证</a><br>
+						</li>
+					</ul>
+					<div class="FootLogo"><a href="/"><img src="/images/logo.png" /></a></div>
+				</div>
+				<p class="copy">
+				<a href="/active.php" target="_blank" style="color:#FF6600">使用前必读</a>
+				Copyright &copy; 2011   xingjibuy.com 
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

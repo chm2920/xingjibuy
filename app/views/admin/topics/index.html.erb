@@ -1,0 +1,53 @@
+
+	<h1>帖子管理</h1>
+	<div class="Info">
+		<form action="/admin/topics/index" method="post">
+		<p>
+			<input type="text" id="Form_Keywords" name="keyword" value="" class="InputBox">
+			<input type="submit" id="Form_Go" name="Form/Go" value="Go" class="Button">
+		</p>
+		<% if params[:keyword] %>
+		<p>搜索："<%= params[:keyword] %>"</p>
+		<% end %>
+		</form>
+	</div>
+	
+	<form name="vbform" id="vbform" action="/admin/topics/index" method="post">
+	<table id="topics" class="AltColumns">
+		<thead>
+			<tr>
+				<th>&nbsp;</th>
+				<th>用户名</th>
+				<th class="Alt">标题</th>
+				<th>发布时间</th>
+				<th class="Alt">更新时间</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @topics.each do |topic| %>
+			<tr class="Alt">
+				<td><input id="topic_ids" name="topic_ids[]" type="checkbox" value="<%= topic.id %>"></td>
+				<td><strong><a href="<%= topic.user.show_url if topic.user %>"><%= topic.user.username if topic.user %></a></strong></td>
+				<td class="Alt"><a href="<%= topic.show_url %>"><%= topic.title %></a></td>
+				<td><%= topic.created_at.strftime("%Y-%m-%d %H:%M") %></td>
+				<td class="Alt"><%= topic.updated_at.strftime("%Y-%m-%d %H:%M") %></td>
+				<td>
+					<%= link_to '删除', admin_topic_path(topic), :confirm => '确认要删除吗?', :method => :delete, :class => "SmallButton" %>
+				</td>
+			</tr>
+			<% end %>
+			<tr class="Alt">
+				<td colspan="3">
+					<input type="button" name="selectAll" value="全选" onclick="CheckAll(vbform,'topic_ids[]');" class="SmallButton">
+					<input type="button" name="selectOther" value="反选" onclick="CheckOthers(vbform,'topic_ids[]');" class="SmallButton">
+					<input type="submit" name="delete_all" value="全部删除" onclick="return checkForm(vbform);" class="SmallButton">
+				</td>
+				<td colspan="3">
+					<%= will_paginate @topics %>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</form>
+	

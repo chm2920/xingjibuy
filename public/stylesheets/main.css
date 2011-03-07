@@ -1,0 +1,118 @@
+
+.main_l{float:left;width:700px;}
+
+.todaydeal{position:relative;width:700px;z-index:900;}
+
+.todaydeal .d_top{height:8px;line-height:8px;}
+
+.todaydeal .d_main{background: url(/images/g_bgdealhm.png) repeat-y;padding: 10px 15px;}
+.todaydeal .d_main h1{font-size:30px;font-family:'黑体',arial,sans-serif;font-weight:bold;line-height:1.2;padding:10px 30px 10px 35px;}
+.todaydeal .d_main h1 span{color:#FF0000;}
+.dealinfo{}
+.deal_l{float:left;width:220px;}
+
+.buybox{border:#7ACCF6 1px solid;background:#CFEEF6;position:relative;height:150px;}
+
+	.buybox .buy{position:absolute;background:url(/images/deal_tag.png);width:295px;height:94px;left:-75px;top:-1px;}
+	.buybox .buy .price{float:left;color:#fff;font-size:36px;font-family:Arial, Helvetica, sans-serif;font-weight:bold;line-height:75px;margin-left:35px;width:120px;-margin-left:15px;}
+	.buybox .buy .btn_buy{float:right;background:url(/images/btn_buy.png) no-repeat;width:134px;height:62px;margin-top:6px;margin-right:5px;-margin-right:3px;cursor:pointer}
+	.buybox .buy .btn_buylove{float:right;background:url(/images/btn_love.png) no-repeat;width:134px;height:62px;margin-top:6px;margin-right:5px;-margin-right:3px;cursor:pointer}
+	.buybox .buy .btn_buylove2{float:right;background:url(/images/bless_zhufu.png) no-repeat;width:134px;height:62px;margin-top:6px;margin-right:5px;-margin-right:3px;cursor:pointer}
+	.buybox .buy .btn_info{float:right;background:url(/images/btn_info.png) no-repeat;width:134px;height:62px;margin-top:6px;margin-right:5px;-margin-right:3px;cursor:pointer}
+	.buybgbox .btn_buy{background:url(/images/btn_buy.png) no-repeat;width:134px;height:62px;margin-top:0px;margin-right:5px;-margin-right:3px;cursor:pointer}
+	.buybox .buy .btn_choujiang{background:url(/images/btn_choujiang1.png) no-repeat;width:134px;height:62px;margin-top:6px;margin-right:5px;-margin-right:3px;cursor:pointer}
+	.buybox .buy .btn_reports{background:url(/images/btn_reports1.png) no-repeat;width:134px;height:62px;margin-top:6px;margin-right:5px;-margin-right:3px;cursor:pointer}
+	
+	.buybox .shuzi{margin-top:85px;}
+	.buybox .shuzi li{float:left;width:33%;text-align:center;line-height:28px;font-size:14px;font-weight:bold;}
+	.buybox .shuzi .red{color:#FF3300}
+
+.shuzi h4 {text-decoration: line-through;font-family: Arial, Helvetica, sans-serif;font-weight: 700;font-size: 18px;}
+
+.deal_samebox{border:#FBD686 1px solid;background:#FFF8E8;margin-top:10px;padding-bottom:10px;}
+	.deal_samebox .title{float:left;font-size:14px;padding:15px 0px 0px 10px;width:170px;}
+	.deal_samebox .box_r{float:right;margin-right:5px;}
+
+.status{text-align:center}
+	.status h6{font-size:16px;margin:10px 0px;font-weight:bold;}
+	.status .done{font-size:16px;font-family:黑体}
+.deal_r{float:right;width:440px;}
+	.deal_r .image{width:440px;height:280px;}
+	.deal_r .image img{width:440px;height:280px;}
+	.deal_r .text{margin:0px 0px;background:url(/images/ico_text.gif) no-repeat;padding:15px 45px 0px 45px;font-size:14px;line-height:24px;}
+	.deal_r .loca{background:#efefef;padding:3px 10px;width:420px;height:20px;overflow:hidden;word-wrap:break-word;word-break:break-all;}
+
+.todaydeal .d_bottom{background: url(/images/g_bgdealhb.png) no-repeat;height:8px;}
+
+.todayinfo{width:690px;margin-left:5px;margin-top:10px;font-size:14px;line-height:26px;}
+.todayinfo .d_top{background:url(/images/bg_dlintop.png) no-repeat;height:8px;line-height:0px;}
+.todayinfo .d_main{background:url(/images/bg_dlinmid.png) repeat-y;}
+.todayinfo .d_main .info{float:left;padding:15px 20px;width:430px;}
+.todayinfo .d_main .info img{}
+.todayinfo .d_main .company{float:right;padding:15px;width:190px;font-size:12px;line-height:20px;}
+.todayinfo .d_main .company h3{font-size:16px;}
+.todayinfo .d_bottom{background:url(/images/bg_dlinbom.png) no-repeat;height:8px;line-height:0px;}
+
+.tuan_list{margin-top:10px;}
+	.tuan_ing{float:left;margin-right:10px;margin-bottom:10px;border: 1px solid #FFBDAA;background:#FFF;padding:10px 12px;width:318px;}
+	.noblank{margin-right:0;}
+		.tuan_ing h2{font-size:14px;font-weight:bold;height:43px;padding:10px 0;color:#000;}
+		.tuan_ing_img{width:320px;height:240px;background:#EEE;}
+			.tuan_ing_img img{width:320px;height:240px;}
+		.tuan_ing_buy{margin-top:10px;height:90px;padding-left:230px;position:relative;}
+			.tuan_ing_tag{position: absolute; z-index: 1; left: -23px; width: 197px; height: 67px; padding-left: 50px; background: url(/images/newidx-20110121.png) no-repeat top left; _background: url(/images/newidx-20110121.gif) no-repeat top left;/* IE6 */ background-position: 0 -166px;}
+			.tuan_ing_price{position: absolute; z-index: 2; left: -62px; width: 187px; height: 62px; line-height: 62px; padding-left: 60px;}
+				.tuan_ing_price strong{float: left; margin-left: 20px; font-size: 26px; color: #FFF; font-weight: normal; font-family: Helvetica,arial,sans-serif;}
+				.tuan_ing_price span{position: absolute; z-index: 2; top: 7px; right: -28px; color: #FFF;}
+				.tuan_ing_price span a{display: block; width: 106px; height: 47px; line-height: 47px; text-indent: -99999px; background: url(/images/newidx-20110121.png) no-repeat top left; background-position: 0 -238px;}
+			.tuan_ing_price_more{color: #6D6D6D; font-size: 12px;}
+				.tuan_ing_price_more p{ line-height: 22px;}
+				.tuan_ing_price_more p.through{text-decoration: line-through;}
+			.tuan_ing_remain_time{width: 308px; height: 43px; line-height: 43px; _padding-top: 8px; _height: 35px; padding-left: 10px; overflow: hidden; background: url(/images/newidx-20110121.png) no-repeat top left; background-position: 0 -395px; color: #000; letter-spacing: .5pt;}
+				.limit_time{display: inline;}
+				.limit_time strong{font-size: 16px; font-weight: normal;}
+				.tuan_ing_buy_number{display: inline; padding-left: 10px; color: #666; font-size: 12px;}
+				.tuan_ing_buy_number strong { font-weight: normal; font-size: 22px; color: #B80C1E; }
+				
+.common_box{width:690px;margin:10px auto;}
+	.common_box .m_top{height:8px;line-height:0;}
+	.common_box .m_main{background:url(/images/bg_scodmid.png) repeat-y;}
+	.common_box .m_bottom{height:8px;line-height:0;}
+	
+	.gbt_line{border-bottom:#FBD686 1px solid;padding:15px 20px;font-size:28px;font-weight:bold;line-height:30px;}
+	.sect{padding:15px 20px 30px 20px}
+	.kuangaa_login{padding:4px;width:280px;font-weight:bold;font-size:13px;color:#333;vertical-align:middle;border:#89B4D6 1px solid;}
+	.zcbt{width:80px;height:30px;}
+	.gdbtn{background:#FFCC00;border-top:#FFFF99 1px solid;border-left:#FFFF99 1px solid;border-right:#996600 1px solid;border-bottom:#996600 1px solid;cursor:pointer;}
+
+
+.main_r{float:right;width:242px;}
+	.ycsamebox{margin-bottom:10px;}
+	.ycsamebox .d_top{background:url(/images/bg_yctop_n.png) no-repeat;height:10px;}
+	.ycsamebox .d_main{background:url(/images/bg_ycmid_n.png) repeat-y;padding:0px 20px}
+	.ycsamebox .d_bottom{background:url(/images/bg_ycbom_n.png) no-repeat;height:10px;}
+	
+	.ycsamebox .d_main .title{padding:3px 0px;font-size:14px;font-weight:bold;}
+	.ycsamebox .d_main .spe{text-align:center;font-size:16px;color:#CC0000;}
+	
+	.ycsamebox .d_main .comment{border-bottom:#CCC dashed 1px;padding:5px 0px 10px 0px;line-height:20px;}
+	.ycsamebox .d_main .txt{padding:5px 0px 0px 0px;font-size:12px;line-height:22px;color:#666}
+	.ycsamebox .d_main .txt span{font-weight:bold;font-size:16px;color:#CC0000;}
+	.txt .pic_ing img{width:200px;}
+		.txt .l{float:left;}
+		.txt .r{float:right;}
+	.ycsamebox .d_main .dazhelist{line-height:22px;}
+	.ycsamebox .d_main .yi_text{font-size:12px;border-bottom:#ccc 1px dashed;line-height:20px;padding:5px 0px;clear:both;}
+	.ycsamebox .d_main .yi_text a{color:#666}
+		.ques{font-weight:bold;}
+		.answ{padding:5px 0 0 0;}
+	.ycsamebox .d_main .custom-service {background-color:#FFFFFF;margin-top:6px;padding:15px 0 12px;text-align:center;}
+	
+	.ycsamebox .total {font-weight:bold;padding:0px 10px;}
+	.ycsamebox strong.count,.ycsamebox .price strong.discount{color:#FE6601;}
+	.ycsamebox .price,.ycsamebox .buy {color:#666666;padding:0px 10px;}
+	.ycsamebox .price strong {color:#000000;display:inline-block;height:20px;line-height:20px;vertical-align:center;width:52px;}
+	.ycsamebox .price strong.old {text-decoration:line-through;}
+span.money{font-family:Helvetica,arial,sans-serif;}
+
+

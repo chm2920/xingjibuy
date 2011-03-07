@@ -1,0 +1,57 @@
+*{margin:0;padding:0;}
+html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,form,input,em,textarea,p,th,td,span{margin:0px;padding:0px;}
+img{border:0;}
+ol,ul,li{list-style-type:none;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:700;}
+html,body{ font-size:12px;}
+
+body{margin:0;padding:0;font-size:12px;color:#000;text-align:center;font:12px Tahoma,Verdana,Arial,sans-serif,宋体;}
+form,ul,ul li,p{margin:0;padding:0;}
+ul, ul li{list-style:none;}
+a{color:#1E79A7;text-decoration:none;}
+a:hover{color:#ff0084;text-decoration:none;}
+img{border:0px;}
+.clearfix:after {content:"."; display:block; height:0; clear:both; visibility:hidden; }
+* html>body .clearfix { display:inline-block; width:100%; }
+* html .clearfix { height:1%; /* End hide from IE-mac */ } 
+/* ie7 hack*/ 
+*+html .clearfix { min-height:1%; } 
+.clearfix{zoom:1;} 
+
+h1, h2, h3, h4, h5, h6{margin: 0;padding: 0;}
+input, option, select, textarea, button {font-size: 12px;}
+
+#Container{width:100%;text-align:center;margin:0 auto;background:#FFF8E6;line-height: 22px;}
+.wapper{margin:0 auto;width:960px;text-align:left;}
+
+#Header{background:url(/images/header_bg.jpg) repeat-x;height:150px;}
+	#Head{height:105px;}
+		.logo{float:left;margin-top:20px;margin-left:20px;}
+		#Menu{float:left;margin-left:120px;margin-top:38px;}
+			#Menu li{float:left;padding:6px 20px;}
+			#Menu li a{font-size:18px;font-weight:bold;}
+		.login{float:right;margin-top:50px;margin-right:50px;}
+			.login a{font-size:14px;margin-left:20px;}
+	#Nav{height:45px;}
+		.NavList{float:left;margin-left:8px;}
+			.NavList li{float:left;line-height:45px;}
+			.NavList li a{color:#FFF;font-size:14px;font-weight:bold;display:block;padding:0px 16px;-padding:0px 18px;}
+			.NavList li a:hover{background:#FFA66A;color:#000;display:block;text-decoration:none;}
+		.Search{float:right;padding-top:12px;}
+			.SInput{border: 1px solid #FFC59D;padding: 4px;vertical-align: middle;width: 190px;color: #999;}
+			.SSubmit{background: url(/images/btn_t_search.png) no-repeat;color: white;cursor: pointer;font-size: 12px;border:0px;height: 25px;vertical-align: middle;width: 48px;}
+	
+
+#PageBody{height:auto !important;width:960px;margin:auto;min-height:200px;text-align:left;margin-top:15px;}
+
+#Footer{margin:0 auto;margin-top:60px;text-align:left;background:url(/images/footer_n1.jpg) repeat-x;height:245px;}
+	#Foot{padding:10px 0;text-align:left;color: #666;}
+		#Foot ul{float:left;padding-top:25px}		
+			#Foot li{float:left;border-right:#ccc 1px dashed;padding:0px 30px;width:120px;color:#666;font-size:12px;line-height:20px;height:120px;}		
+			#Foot li span{display:block;font-size:14px;font-weight:bold;color:#333;height:25px}		
+			#Foot li a{color:#666;font-size:12px;}		
+			#Foot li a:hover{color:#666;text-decoration:underline;}		
+		.FootLogo{float:right;margin-top:50px;margin-right:20px;_margin-right:10px;}
+		#Foot .copy{text-align:center;padding-top:26px;}
+
+	

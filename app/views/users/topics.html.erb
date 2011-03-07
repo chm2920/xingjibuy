@@ -1,0 +1,35 @@
+<div id="Content">
+	<div class="Profile">
+		<div class="User">
+			<h1><%= @user.username %></h1>
+		</div>
+		<div class="Tabs ProfileTabs">
+			<ul>
+				<li class="Activity"><a href="<%= @user.show_url %>">记录</a></li>
+				<li class="Topics Active"><a href="<%= @user.show_url + "/topics" %>">帖子</a></li>
+				<li class="Comments"><a href="<%= @user.show_url + "/comments" %>">回复</a></li>
+			</ul>
+		</div>		
+		<ul class="DataList">
+			<% @topics.each do |topic| %>
+			<li class="Item">
+				<div class="ItemContent">
+					<a href="<%= topic.show_url %>" class="Title"><%= topic.title %></a>
+					<div class="Meta">
+						<span class="Tags">
+							<%= simple_format(topic.tags.split("，").map{|t|"<a href='/'>#{t}</a>"}.join()).gsub("<p>","").gsub("<\/p>","") %>
+						</span>
+						<span class="CommentCount">评论 <%= topic.comments.count %></span>
+						<span class="LastCommentBy"><a href="<%= topic.user.show_url %>"><%= topic.user.username %></a> 发布于</span>
+						<span class="LastCommentDate"><%= topic.created_at.strftime("%m-%d") %></span>
+						<span><a href="<%= topic.topic_category.show_url %>" class="Category"><%= topic.topic_category.name %></a></span>
+					</div>
+				</div>
+			</li>
+			<% end %>
+		</ul>
+	</div>
+</div>
+<div id="Panel">
+	<%= render "/partials/users_side" %>
+</div>

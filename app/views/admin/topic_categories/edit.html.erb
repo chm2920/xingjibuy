@@ -1,0 +1,23 @@
+
+	<h1>小类修改</h1>
+	<%= form_for([:admin, @topic_category]) do |f| %>
+	<ul>
+		<li>
+			<label for="Category_NodeID">大类</label>
+			<%= f.select :node_id, @nodes.map{|n|[n.name, n.id]} %>
+		</li>
+		<li>
+			<label for="Category_Name">名称</label>
+			<%= text_field :topic_category, :name, :class => "InputBox" %>
+		</li>
+		<li>
+			<label for="Category_Url">地址</label>
+			<%= text_field :topic_category, :url, :class => "InputBox" %>
+		</li>
+		<li>
+			<label for="Category_Description">描述</label>
+			<%= text_area :topic_category, :description, :class => "TextBox", :style => "" %>
+		</li>
+	</ul>
+	<input type="submit" id="Form_Save" name="Category/Save" value="保存" class="Button">
+	<% end %>

@@ -1,0 +1,23 @@
+
+	<h1>用户查看</h1>
+	<form>
+	<ul>
+		<li>
+			<label for="Category_NodeID">大名</label>
+			<%= @user.username %>
+		</li>
+		<li>
+			<label for="Category_Name">Email</label>
+			<%= @user.email %>
+		</li>
+		<li>
+			<label for="Category_Url">注册时间</label>
+			<%= @user.created_at.strftime("%Y-%m-%d %H:%M") %>
+		</li>
+		<li>
+			<label for="Category_Description">最后登录</label>
+			<%= @user.updated_at.strftime("%Y-%m-%d %H:%M") %>
+		</li>
+	</ul>
+	<input type="button" id="Form_Save" name="Category/Save" value="返回" onclick="javascript:history.back(-1)" class="Button">
+	</form>
