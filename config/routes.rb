@@ -4,8 +4,6 @@ Xingjibuy::Application.routes.draw do
 
   get 'kindeditor/images_list'
   post 'kindeditor/upload'
-
-  resources :users
   
   #get "about"
   match "about" => "about#index"
@@ -21,8 +19,10 @@ Xingjibuy::Application.routes.draw do
   post "users/login_rst"
   match "logout" => "users#logout"
   match "reg" => "users#reg"
-  match "reg_rst" => "users#reg_rst"
-  match "reg_re" => "users#reg_re"
+  match "reg_rst" => "users#create"
+  match "activate_user" => "users#activate"
+
+  resources :users
   
   match "search" => "tuans#search"
     

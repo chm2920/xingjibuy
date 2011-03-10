@@ -3,19 +3,27 @@ class UsersController < ApplicationController
 
   def reg
     @user = User.new
-  end
-  
-  def reg_rst
-    
+    #@user = User.first
+    #UserMailer.welcome(@user).deliver
   end
 
   def create
     @user = User.new(params[:user])
-    if @user.save
-      session[:user_id] = @user.id
-      redirect_to "/"
-    else
-      render :action => "new"
+    @user.email = params[:user][:email]
+    @user.username = params[:user][:username]
+    @user.current_login_ip = request.remote_ip
+    @user.last_login_ip = request.remote_ip
+    ActiveRecord::Base.transaction do
+      begin
+        @user.save!
+        UserMailer.welcome(@user).deliver
+      rescue Exception => e
+        ActiveRecord::Rollback
+        #render :text => e
+        render :action => "reg", :user => @user
+      else
+        render :action => "create"
+      end
     end
   end
 
@@ -56,6 +64,15 @@ class UsersController < ApplicationController
   def logout
     session[:user_id] = nil
     redirect_to "/"
+  end
+  
+  def send_activate_email
+    @user = User.first
+    UserMailer.welcome(@user).deliver
+  end
+  
+  def activate
+    
   end
   
 end

@@ -79,11 +79,11 @@
 	.common_box .m_main{background:url(/images/bg_scodmid.png) repeat-y;}
 	.common_box .m_bottom{height:8px;line-height:0;}
 	
-	.gbt_line{border-bottom:#FBD686 1px solid;padding:15px 20px;font-size:28px;font-weight:bold;line-height:30px;}
-	.sect{padding:15px 20px 30px 20px}
-	.kuangaa_login{padding:4px;width:280px;font-weight:bold;font-size:13px;color:#333;vertical-align:middle;border:#89B4D6 1px solid;}
-	.zcbt{width:80px;height:30px;}
-	.gdbtn{background:#FFCC00;border-top:#FFFF99 1px solid;border-left:#FFFF99 1px solid;border-right:#996600 1px solid;border-bottom:#996600 1px solid;cursor:pointer;}
+	.m_main_title{border-bottom:#FBD686 1px solid;padding:15px 20px;font-size:28px;font-weight:bold;line-height:30px;}
+	.m_main_info{padding:15px 20px 30px 20px}
+	.iInput{padding:4px;width:280px;font-weight:bold;font-size:13px;color:#333;vertical-align:middle;border:#89B4D6 1px solid;}
+	.btn_reg{width:80px;height:30px;}
+	.btn_common{background:#FFCC00;border-top:#FFFF99 1px solid;border-left:#FFFF99 1px solid;border-right:#996600 1px solid;border-bottom:#996600 1px solid;cursor:pointer;}
 
 
 .main_r{float:right;width:242px;}

@@ -6,70 +6,58 @@
 			<img src="/images/bg_scodtop.png">
 		</div>
 		<div class="m_main">
-			<div class="gbt_line">
+			<div class="m_main_title">
 				注册<span style="font-size:14px;font-weight:normal"> 或者 <a href="regn.php">登录</a></span>
 			</div>
-			<div class="sect" style="padding-left:80px;">
-				
-				<form method="post" action="/reg_rst" id="login">
+			<div class="m_main_info" style="padding-left:80px;">
+				<% if @user.errors.any? %>
+				<ul class="reg_errors_ul">
+				<% @user.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+				</ul>
+				<% end %>
+				<%= form_tag "/reg_rst", :method => "post" do %>
 					<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
 						<tbody>
 						<tr>
 							<td height="50" align="right" style="font-size:14px;"><font color="red">*</font> 邮　　箱：</td>
 							<td width="75%">
-							<input name="email" id="email" type="text" class="kuangaa_login" maxlength="200" size="28" value="">
+								<%= text_field :user, :email, :class => "iInput", :maxlength => "200", :size => "28" %>
 							</td>
 						</tr>
 						<tr>
 							<td height="50" align="right" style="font-size:14px;"><font color="red">*</font> 用户名称：</td>
-							<td><input name="user_id" id="user_id" type="text" class="kuangaa_login" size="28" value=""></td>
+							<td><%= text_field :user, :username, :class => "iInput", :size => "28" %></td>
 						</tr>
 						<tr>
 							<td height="50" align="right" style="font-size:14px;"><font color="red">*</font> 用户密码：</td>
-							<td><input name="pwd" type="password" class="kuangaa_login" size="28" id="pwd"></td>
+							<td><input name="user[password]" type="password" class="iInput" size="28" id="pwd"></td>
 						</tr>
 						<tr>
 							<td height="50" align="right" style="font-size:14px;"><font color="red">*</font> 确认密码：</td>
-							<td><input name="pwd2" type="password" class="kuangaa_login" size="28" id="pwd2"></td>
-						</tr>
-						<tr>
-							<td height="50" align="right" style="font-size:14px;"><font color="red">*</font> 验 证 码：</td>
-							<td>
-							<input type="text" name="yan" size="4" maxlength="4" class="kuangaa_login" style="width:60px;"> <img src="/need/code.php" name="chkimg" width="65px" height="20px" align="absmiddle" id="chkimg"> <span onclick="cimg()" style="cursor:pointer;">看不清，换一张</span>
-							<script>
-							function cimg(){
-							var changetime =new Date().getTime();
-							document.getElementById('chkimg').src='/need/code.php?'+changetime;
-							}
-							</script>
-							</td>
-						</tr>
-						
+							<td><input name="user[password_confirm]" type="password" class="iInput" size="28" id="pwd2"></td>
+						</tr>						
 						<tr>
 							<td height="50" align="right" valign="top" style="font-size:14px;padding-top:10px;">邀请人邮箱：</td>
 							<td style="padding-top:5px;">
 							
-								<input name="inviemail" type="text" class="kuangaa_login" size="28" id="invi_email">
+								<input name="inviemail" type="text" class="iInput" size="28" id="invi_email">
 								
 								<div class="error1" style="background:none;border:none;padding:0px;margin:0px;line-height:18px;color:#999">
 								如果此栏为空，表示您的邀请人信息并未被记录，如果您是通过朋友邀请注册，您可以在栏中直接输入邀请人的邮箱。
 								</div>
 							</td>
 						</tr>
-						
-						<tr>
-							<td height="45" align="right" style="font-size:14px;"></td>
-							<td><input type="checkbox" name="agreement" id="agreement" value="1" checked="checked"> 订阅每日最新团购信息</td>
-						</tr>
 						<tr>
 							<td height="45" align="right" style="font-size:14px;"></td>
 							<td> <label>
-							<input name="submit" type="submit" class="zcbt gdbtn" value="注 册 ">
+							<input name="submit" type="submit" class="btn_common btn_reg" value="注 册 ">
 							</label></td>
 						</tr>
 						</tbody>
 					</table>
-				</form>
+				<% end %>
 			</div>
 		</div>
 		<div class="m_bottom">
@@ -81,8 +69,8 @@
 	<div class="ycsamebox" style="margin-top:10px;">
 		<div class="d_top"></div>
 		<div class="d_main clearfix" style="padding:10px 20px 10px 20px">
-			<div class="title">已有拉手账户？</div>
-			<div class="txt">请直接<a href="regn.php">登录</a></div>
+			<div class="title">已有星吉团账户？</div>
+			<div class="txt">请直接<a href="/login">登录</a></div>
 		</div>
 		<div class="d_bottom"><img src="/images/bg_ycbom_n.png"></div>
 	</div>

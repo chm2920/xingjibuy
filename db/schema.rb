@@ -12,14 +12,6 @@
 
 ActiveRecord::Schema.define(:version => 20110307095258) do
 
-  create_table "comments", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "topic_id"
-    t.text     "comment"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "deals", :force => true do |t|
     t.string   "title"
     t.integer  "price"
@@ -49,10 +41,14 @@ ActiveRecord::Schema.define(:version => 20110307095258) do
     t.string   "email"
     t.string   "username"
     t.string   "password"
-    t.integer  "login_times"
+    t.string   "salt"
+    t.integer  "login_times",      :default => 0, :null => false
     t.datetime "last_login_at"
-    t.string   "current_login_ip"
     t.string   "last_login_ip"
+    t.string   "current_login_ip"
+    t.integer  "state",            :default => 0, :null => false
+    t.integer  "coins",            :default => 0, :null => false
+    t.integer  "money",            :default => 0, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
