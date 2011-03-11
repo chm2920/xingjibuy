@@ -1,0 +1,31 @@
+
+	<h1>日志查看</h1>
+	<form>
+	<ul>
+		<li>
+			<label>路径</label>
+			<%= @log.log_path %>
+		</li>
+		<li>
+			<label>Method</label>
+			<%= @log.log_method %>
+		</li>
+		<li>
+			<label>Params</label>
+			<%= @log.log_params %>
+		</li>
+		<li>
+			<label>Exception</label>
+			<%= @log.log_exception %>
+		</li>
+		<li>
+			<label>IP</label>
+			<%= @log.log_remote_ip %>
+		</li>
+		<li>
+			<label>时间</label>
+			<%= @log.created_at.strftime("%Y-%m-%d %H:%M") %>
+		</li>
+	</ul>
+	<input type="button" id="Form_Save" name="RunLog/Back" value="返回" onclick="javascript:history.back(-1)" class="Button">
+	</form>

@@ -21,6 +21,17 @@ img{border:0px;}
 h1, h2, h3, h4, h5, h6{margin: 0;padding: 0;}
 input, option, select, textarea, button {font-size: 12px;}
 
+.errors{border: thin solid #8b0000;background: #ffc0cb;padding:15px 20px;width:500px;}
+	.errors li{}
+.info{border: thin solid #ff0;background: #ffe;}
+.warning {border: thin solid #b8860b;background: #ff0;}
+
+/*Some text with <span class="tooltip">info <span>i can has info?</span></span> about a w */
+.tooltip{position: relative;background-color: #ffa;}
+.tooltip:hover{background-color: #ff6;}
+.tooltip span{display: none}
+.tooltip:hover span{z-index:1;display:block;position:absolute;top:1.6em;left:0;border:thin solid #ff0;background:#ffe;padding:.3em .6em;text-align:left;white-space:nowrap;}
+
 #Container{width:100%;text-align:center;margin:0 auto;background:#FFF8E6;line-height: 22px;}
 .wapper{margin:0 auto;width:960px;text-align:left;}
 

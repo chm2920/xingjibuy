@@ -11,7 +11,7 @@
 			</div>
 			<div class="m_main_info" style="padding-left:80px;">
 				<% if @user.errors.any? %>
-				<ul class="reg_errors_ul">
+				<ul class="errors">
 				<% @user.errors.full_messages.each do |msg| %>
 					<li><%= msg %></li>
 				<% end %>
@@ -32,19 +32,17 @@
 						</tr>
 						<tr>
 							<td height="50" align="right" style="font-size:14px;"><font color="red">*</font> 用户密码：</td>
-							<td><input name="user[password]" type="password" class="iInput" size="28" id="pwd"></td>
+							<td><input type="password" name="user[password]" id="user_password" class="iInput" size="28" value=""></td>
 						</tr>
 						<tr>
 							<td height="50" align="right" style="font-size:14px;"><font color="red">*</font> 确认密码：</td>
-							<td><input name="user[password_confirm]" type="password" class="iInput" size="28" id="pwd2"></td>
+							<td><input type="password" name="user[password_confirmation]" id="user_password_confirmation" class="iInput" size="28" value=""></td>
 						</tr>						
 						<tr>
 							<td height="50" align="right" valign="top" style="font-size:14px;padding-top:10px;">邀请人邮箱：</td>
 							<td style="padding-top:5px;">
-							
 								<input name="inviemail" type="text" class="iInput" size="28" id="invi_email">
-								
-								<div class="error1" style="background:none;border:none;padding:0px;margin:0px;line-height:18px;color:#999">
+								<div style="background:none;border:none;padding:0px;margin:0px;line-height:18px;color:#999">
 								如果此栏为空，表示您的邀请人信息并未被记录，如果您是通过朋友邀请注册，您可以在栏中直接输入邀请人的邮箱。
 								</div>
 							</td>

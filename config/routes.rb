@@ -20,7 +20,8 @@ Xingjibuy::Application.routes.draw do
   match "logout" => "users#logout"
   match "reg" => "users#reg"
   match "reg_rst" => "users#create"
-  match "activate_user" => "users#activate"
+  match "send_activate_email" => "users#send_activate_email"
+  match "activate_account/:id" => "users#activate"
 
   resources :users
   
@@ -32,6 +33,8 @@ Xingjibuy::Application.routes.draw do
     get "dashboard"
     resources :deals
     resources :users
+    resources :run_logs
+    post "run_logs/index"
     post "users/index"
   end
 

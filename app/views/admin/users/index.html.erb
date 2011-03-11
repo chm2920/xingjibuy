@@ -28,8 +28,8 @@
 			<% @users.each do |user| %>
 			<tr class="Alt">
 				<td><input id="user_ids" name="user_ids[]" type="checkbox" value="<%= user.id %>"></td>
-				<td><strong><a href="<%= user.show_url %>"><%= user.username %></a></strong></td>
-				<td class="Alt"><span class="Email"><a href="<%= user.show_url %>"><%= user.email %></a></span></td>
+				<td><a href="<%= admin_user_path(user) %>"><strong><% if user.state==0 %><font color="#ff0000"><%= user.username %></font><% else %><%= user.username %><% end %></strong></a></td>
+				<td class="Alt"><span class="Email"><%= user.email %></span></td>
 				<td><%= user.created_at.strftime("%Y-%m-%d %H:%M") %></td>
 				<td class="Alt"><%= user.updated_at.strftime("%Y-%m-%d %H:%M") %></td>
 				<td>

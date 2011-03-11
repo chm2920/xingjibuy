@@ -3,21 +3,53 @@
 	<form>
 	<ul>
 		<li>
-			<label for="Category_NodeID">大名</label>
-			<%= @user.username %>
-		</li>
-		<li>
-			<label for="Category_Name">Email</label>
+			<label>Email</label>
 			<%= @user.email %>
 		</li>
 		<li>
-			<label for="Category_Url">注册时间</label>
-			<%= @user.created_at.strftime("%Y-%m-%d %H:%M") %>
+			<label>大名</label>
+			<%= @user.username %>
 		</li>
 		<li>
-			<label for="Category_Description">最后登录</label>
+			<label>salt</label>
+			<%= @user.salt %>
+		</li>
+		<li>
+			<label>login_times</label>
+			<%= @user.login_times %>
+		</li>
+		<li>
+			<label>上次登录时间</label>
+			<%= @user.last_login_at.strftime("%Y-%m-%d %H:%M") %>
+		</li>
+		<li>
+			<label>上次登录IP</label>
+			<%= @user.last_login_ip %>
+		</li>
+		<li>
+			<label>本次登录时间</label>
 			<%= @user.updated_at.strftime("%Y-%m-%d %H:%M") %>
 		</li>
+		<li>
+			<label>本次登录IP</label>
+			<%= @user.current_login_ip %>
+		</li>
+		<li>
+			<label>状态</label>
+			<%= @user.state %>
+		</li>
+		<li>
+			<label>积分</label>
+			<%= @user.coins %>
+		</li>
+		<li>
+			<label>钱</label>
+			<%= @user.money %>
+		</li>
+		<li>
+			<label>注册时间</label>
+			<%= @user.created_at.strftime("%Y-%m-%d %H:%M") %>
+		</li>
 	</ul>
-	<input type="button" id="Form_Save" name="Category/Save" value="返回" onclick="javascript:history.back(-1)" class="Button">
+	<input type="button" id="Form_Save" name="User/Back" value="返回" onclick="javascript:history.back(-1)" class="Button">
 	</form>

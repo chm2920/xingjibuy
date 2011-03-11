@@ -1,0 +1,54 @@
+
+	<h1>日志管理</h1>
+	<div class="Info">
+		<form action="/admin/run_logs/index" method="post">
+		<p>
+			<input type="text" id="Form_Keywords" name="keyword" value="" class="InputBox">
+			<input type="submit" id="Form_Go" name="Form/Go" value="Go" class="Button">
+		</p>
+		<% if params[:keyword] %>
+		<p>搜索："<%= params[:keyword] %>"</p>
+		<% end %>
+		</form>
+	</div>
+	
+	<form name="vbform" id="vbform" action="/admin/run_logs/index" method="post">
+	<table id="RunLogs" class="AltColumns">
+		<thead>
+			<tr>
+				<th>&nbsp;</th>
+				<th>路径</th>
+				<th class="Alt">Method</th>
+				<th>Exception</th>
+				<th class="Alt">时间</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @logs.each do |log| %>
+			<tr class="Alt">
+				<td><input id="log_ids" name="log_ids[]" type="checkbox" value="<%= log.id %>"></td>
+				<td><strong><%= log.log_path %></a></strong></td>
+				<td class="Alt"><%= log.log_method %></td>
+				<td><%= log.log_exception %></td>
+				<td class="Alt"><%= log.created_at.strftime("%Y-%m-%d %H:%M") %></td>
+				<td>
+					<a href="<%= admin_run_log_path(log) %>" class="SmallButton">查看</a>
+					<%= link_to '删除', admin_run_log_path(log), :confirm => '确认要删除吗?', :method => :delete, :class => "SmallButton" %>
+				</td>
+			</tr>
+			<% end %>
+			<tr class="Alt">
+				<td colspan="3">
+					<input type="button" name="selectAll" value="全选" onclick="CheckAll(vbform,'log_ids[]');" class="SmallButton">
+					<input type="button" name="selectOther" value="反选" onclick="CheckOthers(vbform,'log_ids[]');" class="SmallButton">
+					<input type="submit" name="delete_all" value="全部删除" onclick="return checkForm(vbform);" class="SmallButton">
+				</td>
+				<td colspan="3">
+					<%= will_paginate @logs %>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</form>
+	

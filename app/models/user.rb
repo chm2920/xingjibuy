@@ -4,24 +4,14 @@ class User < ActiveRecord::Base
   #after_create :send_welcome_mail
   
   #attr_protected :email, :username, :state
-  attr_accessor :password_confirm
+  #attr_accessor :password_confirm
   
-  validate do |user|
-    if user.new_record? #adds validation if it is a new record
-      user.errors.add(:password, "is required") if user.password.blank? 
-      user.errors.add(:password_confirm, "is required") if user.password_confirm.blank?
-      user.errors.add(:password, "Password and confirmation must match") if user.password != user.password_confirm
-    elsif !(!user.new_record? && user.password.blank? && user.password_confirm.blank?) #adds validation only if password or password_confirmation are modified
-      user.errors.add(:password, "is required") if user.password.blank?
-      user.errors.add(:password_confirm, "is required") if user.password_confirm.blank?
-      user.errors.add(:password, " and confirmation must match.") if user.password != user.password_confirm
-      user.errors.add(:password, " and confirmation should be atleast 4 characters long.") if user.password.length < 4 || user.password_confirm.length < 4
-    end
-  end  
-  
-  validates_presence_of :username
-  validates_presence_of :password, :on => :create
+  validates_presence_of :email, :username, :password
+  validates_confirmation_of :password
   validates_uniqueness_of :email
+  validates_length_of :username, :in => 2..32
+  validates_length_of :password, :in => 6..32
+  validates_format_of :email, :with => /^[0-9a-zA-Z_][\w\.-]*[a-zA-Z0-9_]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$/  
   
   STATE = {
     :new => 0,
@@ -43,6 +33,20 @@ class User < ActiveRecord::Base
     end
   end
   
+  def send_activate_email
+    self.last_login_at = Time.now
+    self.salt = generate_salt
+    self.save!
+    UserMailer.welcome(self).deliver
+  end
+  
+  def activate
+    self.state = STATE[:normal]
+    self.last_login_at = Time.now
+    self.salt = generate_salt
+    self.save!
+  end
+  
 #  def send_welcome_mail
 #    m = UserMailer.welcome(self)
 #    Thread.new { m.deliver }
@@ -52,13 +56,13 @@ class User < ActiveRecord::Base
   
   def default_value_for_create
     self.password = encrypted_password(self.password)
-    self.salt = generate_salt
     self.state = STATE[:new]
     self.last_login_at = Time.now
+    self.salt = generate_salt
   end
 
   def generate_salt
-    encrypted_password(self.email + "xingjibuy")
+    encrypted_password(self.email + self.last_login_at.strftime("%h%s").to_s + "xingjibuy")
   end
   
   def encrypted_password(password)

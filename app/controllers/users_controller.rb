@@ -3,8 +3,6 @@ class UsersController < ApplicationController
 
   def reg
     @user = User.new
-    #@user = User.first
-    #UserMailer.welcome(@user).deliver
   end
 
   def create
@@ -16,11 +14,13 @@ class UsersController < ApplicationController
     ActiveRecord::Base.transaction do
       begin
         @user.save!
+        session[:user_id] = @user.id
+        session[:username] = @user.username
         UserMailer.welcome(@user).deliver
       rescue Exception => e
         ActiveRecord::Rollback
-        #render :text => e
-        render :action => "reg", :user => @user
+        record_error(e)
+        render :action => "reg"
       else
         render :action => "create"
       end
@@ -63,16 +63,28 @@ class UsersController < ApplicationController
   
   def logout
     session[:user_id] = nil
+    session[:username] = nil
     redirect_to "/"
   end
   
   def send_activate_email
-    @user = User.first
-    UserMailer.welcome(@user).deliver
+    begin
+      @user = User.find(session[:user_id])
+      @user.send_activate_email
+    rescue Exception => e
+      record_error(e)
+      render "500", :info => "请重新登陆"
+    end
   end
   
   def activate
-    
+    begin
+      @user = User.find_by_salt(params[:id])
+      @user.activate
+    rescue Exception => e
+      record_error(e)
+      render "500", :info => "验证已过期，请重新申请，或者联系客服。"
+    end
   end
   
 end

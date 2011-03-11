@@ -1,5 +1,12 @@
 class ApplicationController < ActionController::Base
+  
   protect_from_forgery
+  
+  before_filter :check_user
+  
+  def check_user
+    
+  end
 
   def render_404
     render_optional_error_file(404)
@@ -48,6 +55,10 @@ class ApplicationController < ActionController::Base
       redirect_to "/login"
       store_location
     end
+  end
+  
+  def record_error(e)
+    RunLog.log_info(params, request, e)
   end
  
 end
