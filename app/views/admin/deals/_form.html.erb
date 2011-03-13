@@ -1,0 +1,66 @@
+
+	<%= form_for([:admin, @deal], :html => {:multipart => true}) do |f| %>
+	<ul>
+		<li>
+			<label for="deal_Name">名称</label>
+			<%= text_field :deal, :title, :class => "InputBox" %>
+		</li>
+		<li>
+			<label for="deal_Name">售价</label>
+			<%= text_field :deal, :price, :class => "InputBox" %>
+		</li>
+		<li>
+			<label for="deal_Name">原价</label>
+			<%= text_field :deal, :i_price, :class => "InputBox" %>
+		</li>
+		<li>
+			<label for="deal_Name">折扣</label>
+			<%= text_field :deal, :discount, :class => "InputBox" %>
+		</li>
+		<li>
+			<label for="deal_Name">节省</label>
+			<%= text_field :deal, :save_money, :class => "InputBox" %>
+		</li>
+		<li>
+			<label for="deal_Name">最低团购人数</label>
+			<%= text_field :deal, :low_ps, :class => "InputBox" %>
+		</li>
+		<li>
+			<label for="deal_Name">图片</label>
+			<%= file_field :deal, :image, :class => "InputBox" %>
+		</li>
+		<li>
+			<label for="deal_Name">宣传语</label>
+			<%= text_field :deal, :ad_text, :class => "InputBox" %>
+		</li>
+		<li>
+			<label for="deal_Name">数量有限</label>
+			<%= check_box :deal, :limit, :class => "InputBox" %>
+		</li>
+		<li>
+			<label for="deal_Name">结束时间</label>
+			<%= text_field :deal, :end_time, :class => "InputBox" %>
+		</li>
+		<li>
+			<label for="deal_Name">厂家</label>
+			<%= text_field :deal, :company, :class => "InputBox" %>
+		</li>
+		<li>
+			<label for="deal_Name">厂家简介</label>
+			<%= text_area :deal, :com_info, :style => "width:800px;height:500px;", :id => "kindeditor" %>
+		</li>
+		<li>
+			<label for="deal_Name">内容</label>
+			<%= text_area :deal, :info, :style => "width:800px;height:500px;", :id => "kindeditor" %>
+		</li>
+		<li>
+			<label for="deal_Name">状态</label>
+			<%= text_field :deal, :state, :class => "InputBox" %>
+		</li>
+		<li>
+			<label for="deal_Name">购买人数</label>
+			<%= text_field :deal, :num_buyers, :class => "InputBox" %>
+		</li>
+	</ul>
+	<input type="submit" id="Form_Save" name="deal/Save" value="保存" class="Button">
+	<% end %>

@@ -1,0 +1,142 @@
+
+
+<div class="main_l">
+	<div class="common_box">
+		<div class="m_top">
+			<img src="/images/bg_scodtop.png">
+		</div>
+		<div class="m_main">
+			<div class="m_main_title">
+				提交订单
+			</div>
+			<div class="m_main_info">
+				<%= form_tag "/pay" do |f| %>
+				<table width="100%" border="0" cellpadding="0" cellspacing="0" class="deal_buy">
+					<tbody>
+					<tr>
+						<th class="db_name">名称</th>
+						<th class="db_quantity">数量</th>
+						<th class="db_multi">&nbsp;</th>
+						<th class="db_price">单价</th>
+						<th class="db_plus">&nbsp;</th>
+						<th class="db_shipping">运费</th>
+						<th class="db_equal">&nbsp;</th>
+						<th class="db_total">总价</th>
+					</tr>
+					<tr>
+						<td class="db_name"><%= @deal.title %></td>
+						<td class="db_quantity">
+							<input id="order_amount" size="5" value="1" name="amount" class="db_input" autocomplete="off">
+						</td>
+						<td class="db_multi">X</td>
+						<td align="center" class="db_price">￥<%= @deal.price %> </td>
+						<td align="center" class="db_plus">+</td>
+						<td align="center" class="db_price">￥0 </td>
+						<td align="center" class="db_equal">=</td>
+						<td class="db_total">￥<span id="purchase_total"><%= @deal.price %></span></td>
+					</tr>
+					<tr>
+						<td class="db_name red line">应付总额：</td>
+						<td class="db_quantity line" colspan="5">&nbsp;</td>
+						<td align="center" class="db_equal line" style="color:#CC0000">=</td>
+						<td class="db_total red line">￥<span id="purchase_all_total"><%= @deal.price %></span></td>
+					</tr>
+					</tbody>
+				</table>
+				<div class="psbox">
+					<div class="tttle">配送信息</div>
+					<table class="order-table" id="address_table" style="display:block">            	
+						<tbody>
+						<tr>
+							<td class="lftopn">收货人姓名*</td>
+							<td colspan="5" style="text-align:left"><input type="text" class="f-input" id="receiver_name" name="receiverName" size="20"></td>
+						</tr>
+						<tr>
+							<td class="lftopn">省市区*</td>
+							<td colspan="5" style="text-align:left">
+								<select id="capitalCN" class="f-input" name="city1" onchange="changeSel(this)" title="区市">
+									<option value="">区市</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td class="lftopn">街道地址*</td>
+							<td colspan="5" style="text-align:left">
+								<input type="text" class="f-input" id="settings-address" name="street" size="80">
+							</td>
+						</tr>
+						<tr>
+							<td class="lftopn">邮编*</td>
+							<td colspan="5" style="text-align:left">
+								<input type="text" class="f-input" id="postalcode" name="postcode" size="10">
+							</td>
+						</tr>                
+						<tr>
+							<td class="lftopn">手机</td>
+							<td colspan="5" style="text-align:left">
+								<input type="text" class="f-input" id="hp" name="mobile" size="20">
+								<span style="margin-left: 10px; float: none;" class="hint">手机电话至少填一个</span>
+							</td>
+						</tr>
+						<tr>
+							<td class="lftopn">电话</td>
+							<td colspan="5" style="text-align:left">
+								<input type="text" class="f-input" id="phone_area" name="phone_area" size="5"> - 
+								<input type="text" class="f-input" id="phone_number" name="phone_number" size="10"> -
+								<input type="text" class="f-input" id="phone_ext" name="phone_ext" size="5">
+								<input type="hidden" id="telephone" name="telephone">
+							</td>
+						</tr>
+						<tr>
+							<td class="lftopn"></td>
+							<td colspan="3" style="text-align:left">
+								<a onclick="addNewAddress();" href="#none">[添加到常用地址]</a>
+							</td>
+							<td colspan="2">
+								<span id="addrTmp" style="color:red"></span>
+							</td>
+						</tr>			                
+						</tbody>
+					</table>
+					<h3 class="delivery">请选择希望送货的时间：</h3>
+					<ul class="delivery-type">
+						<li>
+							<input type="radio" name="deliveryType" value="21" id="deliveryType-21" checked="checked" class="f-radio">
+							<label for="deliveryType-21">只工作日送货(双休日、假日不用送) (注：写字楼/商用地址客户请选择)</label>
+						</li>
+						<li>
+							<input type="radio" name="deliveryType" value="22" id="deliveryType-22" class="f-radio">
+							<label for="deliveryType-22">只双休日、假日送货(工作日不用送)</label>
+						</li>
+						<li>
+							<input type="radio" name="deliveryType" value="23" id="deliveryType-23" class="f-radio">
+							<label for="deliveryType-23">学校地址/地址白天没人，请尽量安排其他时间送货 (注：特别安排可能会超出预计送货天数)</label>
+						</li>
+						<li>
+							<input type="radio" name="deliveryType" value="24" id="deliveryType-24" class="f-radio">
+							<label for="deliveryType-24">工作日、双休日与假日均可送货</label>
+						</li>
+					</ul>
+					<table class="order-table">
+						<tbody>
+						<tr class="order-total">
+						  <td class="deal-buy-desc" style="width:100px"><strong>备注信息</strong></td>
+						  <td class="deal-buy-quantity" colspan="4" style="text-align:left">
+								<input type="input" class="f-input" name="remark" value="" style="width:300px;">
+						  </td>
+						  <td class="deal-buy-total"></td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="zfbox"><input class="btn_common grep_ok" id="" type="submit" value="确认无误，购买"></div>
+				<% end %>
+			</div>
+		</div>
+		<div class="m_bottom">
+			<img src="/images/bg_scodbom.png">
+		</div>
+	</div>
+</div>
+<div class="main_r">
+</div>

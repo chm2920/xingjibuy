@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
   def self.check_login(email, password)
     user = self.find_by_email(email)
     if user
-      if encrypted_password(password).to_s!=user.password.to_s
+      if user.encrypted_password(password).to_s!=user.password.to_s
         nil
       else
         user

@@ -3,7 +3,14 @@ class Admin::DealsController < Admin::AdminBackEndController
   before_filter :set_cur_panel_active, :except => ["new"]
   
   def index
-    @deals = Deal.all
+    if !params[:deal_ids].nil?
+      Deal.destroy_all(["id in (?)", params[:deal_ids]])
+    end
+    if !params[:keyword].nil?
+      @deals = Deal.paginate :conditions => ["title like ?", "%" + params[:keyword] + "%"], :page => params[:page], :per_page => 15, :order => "id desc"
+    else
+      @deals = Deal.paginate :page => params[:page], :per_page => 15, :order => "id desc"
+    end
   end
 
   def new

@@ -1,0 +1,63 @@
+
+
+<div class="main_l">
+	<div class="common_box">
+		<div class="m_top">
+			<img src="/images/bg_scodtop.png">
+		</div>
+		<div class="m_main">
+			<div class="m_main_title">
+				您的订单
+			</div>
+			<div class="m_main_info">
+				<%= form_tag do |form| %>
+				<table width="100%" border="0" cellpadding="0" cellspacing="0" class="deal_buy">
+					<tbody>
+					<tr>
+						<th class="db_name">名称</th>
+						<th class="db_quantity">数量</th>
+						<th class="db_multi">&nbsp;</th>
+						<th class="db_price">单价</th>
+						<th class="db_equal">&nbsp;</th>
+						<th class="db_total">总价</th>
+					</tr>
+					<tr>
+						<td class="db_name">仅售79元！原价最高258元的“乐维他餐饮”双人套餐：台式一品卤肉+上汤娃娃菜+港式一品海鲜煲+意大利肉酱面+意大利辣味番茄汁面+例汤两份! 邀请好友返利10元！</td>
+						<td class="db_quantity">
+							<input id="order_amount" size="5" value="1" name="amount" class="db_input" autocomplete="off">
+						</td>
+						<td class="db_multi">X</td>
+						<td align="center" class="db_price">￥79.00 </td>
+						<td align="center" class="db_equal">=</td>
+						<td class="db_total">￥
+						<span id="purchase_total">79.00</span>
+						</td>
+					</tr>
+				</table>
+				<div class="psbox c">
+					<div class="tttle">您的账户信息(请确认下面是你的账号后再购买)</div>
+					<div class="bxibeo">账户:chm2920;邮箱:chm2920@163.com</div>
+				</div>
+				<div class="psbox c">
+					<div class="tttle">选择支付方式：<span class="zi_red">（以下三种支付方式，不需注册，可直接通过网银付款）</span></div>
+					<div class="bxibeo" style="font-weight:bold">
+						账户余额：<span class="zi_red">￥0.00元</span>， 您的余额不够完成本次付款，还需支付：<span class="zi_red">￥5元</span>
+					</div>
+					<div class="biowit">
+						<div class="" style="padding-right:25px;">
+							<input class="show_zhilian" name="zhifu" type="radio" value="2" checked="checked">
+							<a class="bank_img_click show_zhilian" href="javascript:void(0)"><img src="/images/bg_zfb.gif" align="absmiddle"></a>
+						</div>
+					</div>
+				</div>
+				<div class="zfbox" style="padding-bottom:20px;"><input class="btn_common grep_ok" id="" type="submit" value="确认订单，付款" style="vertical-align:middle;padding-right:30px;padding-left:10px;"></div>
+				<% end %>
+			</div>
+		</div>
+		<div class="m_bottom">
+			<img src="/images/bg_scodbom.png">
+		</div>
+	</div>
+</div>
+<div class="main_r">
+</div>

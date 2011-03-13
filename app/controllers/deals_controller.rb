@@ -1,18 +1,12 @@
 class DealsController < ApplicationController
 
   def index
+    @re_deal = Deal.first
     @deals = Deal.all
   end
 
-  # GET /deals/1
-  # GET /deals/1.xml
   def show
     @deal = Deal.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @deal }
-    end
   end
 
   # GET /deals/new

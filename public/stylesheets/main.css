@@ -31,27 +31,27 @@
 
 .deal_samebox{border:#FBD686 1px solid;background:#FFF8E8;margin-top:10px;padding-bottom:10px;}
 	.deal_samebox .title{float:left;font-size:14px;padding:15px 0px 0px 10px;width:170px;}
-	.deal_samebox .box_r{float:right;margin-right:5px;}
+	.deal_samebox .box_r{float:right;margin-right:5px;margin-top:10px;}
 
 .status{text-align:center}
 	.status h6{font-size:16px;margin:10px 0px;font-weight:bold;}
 	.status .done{font-size:16px;font-family:黑体}
 .deal_r{float:right;width:440px;}
-	.deal_r .image{width:440px;height:280px;}
-	.deal_r .image img{width:440px;height:280px;}
+	.deal_r .image{width:440px;height:280px;overflow:hidden;}
+	.deal_r .image img{width:440px;}
 	.deal_r .text{margin:0px 0px;background:url(/images/ico_text.gif) no-repeat;padding:15px 45px 0px 45px;font-size:14px;line-height:24px;}
 	.deal_r .loca{background:#efefef;padding:3px 10px;width:420px;height:20px;overflow:hidden;word-wrap:break-word;word-break:break-all;}
 
 .todaydeal .d_bottom{background: url(/images/g_bgdealhb.png) no-repeat;height:8px;}
 
 .todayinfo{width:690px;margin-left:5px;margin-top:10px;font-size:14px;line-height:26px;}
-.todayinfo .d_top{background:url(/images/bg_dlintop.png) no-repeat;height:8px;line-height:0px;}
+.todayinfo .d_top{background:url(/images/bg_dlintop.png) no-repeat;height:8px;line-height:0px;font-size:0;}
 .todayinfo .d_main{background:url(/images/bg_dlinmid.png) repeat-y;}
 .todayinfo .d_main .info{float:left;padding:15px 20px;width:430px;}
-.todayinfo .d_main .info img{}
+.todayinfo .d_main .info img{width:430px;}
 .todayinfo .d_main .company{float:right;padding:15px;width:190px;font-size:12px;line-height:20px;}
 .todayinfo .d_main .company h3{font-size:16px;}
-.todayinfo .d_bottom{background:url(/images/bg_dlinbom.png) no-repeat;height:8px;line-height:0px;}
+.todayinfo .d_bottom{background:url(/images/bg_dlinbom.png) no-repeat;height:8px;line-height:0px;font-size:0;}
 
 .tuan_list{margin-top:10px;}
 	.tuan_ing{float:left;margin-right:10px;margin-bottom:10px;border: 1px solid #FFBDAA;background:#FFF;padding:10px 12px;width:318px;}
@@ -75,9 +75,9 @@
 				.tuan_ing_buy_number strong { font-weight: normal; font-size: 22px; color: #B80C1E; }
 				
 .common_box{width:690px;margin:10px auto;}
-	.common_box .m_top{height:8px;line-height:0;}
+	.common_box .m_top{height:8px;line-height:0;font-size:0;}
 	.common_box .m_main{background:url(/images/bg_scodmid.png) repeat-y;}
-	.common_box .m_bottom{height:8px;line-height:0;}
+	.common_box .m_bottom{height:8px;line-height:0;font-size:0;}
 	
 	.m_main_title{border-bottom:#FBD686 1px solid;padding:15px 20px;font-size:28px;font-weight:bold;line-height:30px;}
 	.m_main_info{padding:15px 20px 30px 20px}
@@ -115,4 +115,37 @@
 	.ycsamebox .price strong.old {text-decoration:line-through;}
 span.money{font-family:Helvetica,arial,sans-serif;}
 
+/*	提交订单
+ *************/
+.deal_buy{width:650px;}
+.deal_buy th,.deal_buy td{text-align:center;}
+.deal_buy th{background:#FFF7D7;font-size:14px;}
+.deal_buy .db_name{text-align:left;font-size:14px;padding:6px}
+.deal_buy .db_quantity{text-align:center;width:80px}
+.deal_buy .db_multi{width:20px}
+.deal_buy .db_plus{width:20px}
+.deal_buy .db_shipping{width:60px}
+.deal_buy .db_price{font-family:"宋体",Arial, Helvetica, sans-serif;width:60px}
+.deal_buy .db_equal{width:20px}
+.deal_buy .db_total{text-align:right;width:100px;}
+.deal_buy .db_input{padding:2px 5px;font-size:18px;font-weight:bold;width:50px;margin:0px auto;text-align:center;display:block}
+.deal_buy .yf{line-height:35px;font-weight:normal;font-size:12px;}
+.deal_buy .line{border-top:#FFEDA6 1px solid;}
+.deal_buy .bod{font-weight:bold;font-size:20px;}
+.deal_buy .red{font-size:20px;color:#CC0000;font-weight:bold;}
 
+.zfbox{padding-top:20px;}
+.zfbox .grep_ok{width:150px;height:30px;font-size:14px;font-weight:bold;margin-left:20px;}
+
+.psbox{padding:20px 0px 0px 0px;font-size:14px;}
+.psbox .tttle{background:#FFF7D7;font-weight:bold;padding:5px;height:22px;position:relative}
+.psbox .tttle span{position:absolute;top:5px;right:10px;font-weight:normal}
+.psbox dl{padding:3px 0px 3px 20px;}
+.psbox dl input{vertical-align:middle}
+.psbox .igoxe{padding:3px;font-size:14px;border:#89B4D6 1px solid;width:150px;}
+.psbox .gses{font-weight:bold;padding:15px 0px 0px 20px}
+.psbox .bxibeo{padding:5px;}
+.psbox .biowit{padding:15px 15px 0px 15px;}
+.psbox .biowit img{margin-right:25px}
+
+.f-input {border:#89B4D6 solid 1px;font-size:14px;padding:3px 4px;}

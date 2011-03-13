@@ -22,8 +22,12 @@ ActiveRecord::Schema.define(:version => 20110311024635) do
     t.string   "image_file_name"
     t.string   "ad_text"
     t.text     "info"
+    t.integer  "limit",           :default => 0
+    t.datetime "end_time"
     t.string   "company"
     t.text     "com_info"
+    t.integer  "state",           :default => 0
+    t.integer  "num_buyers",      :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

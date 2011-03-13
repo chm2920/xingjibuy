@@ -1,11 +1,3 @@
 
 	<h1>团购添加</h1>
-	<%= form_for([:admin, @deal]) do |f| %>
-	<ul>
-		<li>
-			<label for="deal_Name">名称</label>
-			<%= text_field :deal, :title, :class => "InputBox" %>
-		</li>
-	</ul>
-	<input type="submit" id="Form_Save" name="deal/Save" value="保存" class="Button">
-	<% end %>
+	<%= render "form" %>

@@ -1,24 +1,64 @@
 
 	<h1>团购管理</h1>
 	<div class="FilterMenu">
+		<form action="/admin/deals/index" method="post">
+		<p>
+			<input type="text" id="Form_Keywords" name="keyword" value="" class="InputBox">
+			<input type="submit" id="Form_Go" name="Form/Go" value="Go" class="Button">
+		</p>
+		<% if params[:keyword] && params[:keyword]!="" %>
+		<p style="height:30px">搜索：<font color="#FF0000">"<%= params[:keyword] %>"</font></p>
+		<% end %>
+		</form>
 		<a href="/admin/deals/new" class="SmallButton">添加团购</a>
 	</div>
-	<table id="Nodes" class="AltColumns">
+	
+	<form name="vbform" id="vbform" action="/admin/deals/index" method="post">
+	<table id="Deals" class="AltColumns">
 		<thead>
 			<tr>
-				<th>名称</th>
+				<th>&nbsp;</th>
+				<th>团购</th>
+				<th class="Alt">状态</th>
+				<th>购买人数</th>
+				<th class="Alt">结束时间</th>
 				<th>操作</th>
 			</tr>
 		</thead>
 		<tbody>
 			<% @deals.each do |deal| %>
 			<tr class="Alt">
-				<td><strong><%= deal.title %></strong></td>
+				<td><input id="deal_ids" name="deal_ids[]" type="checkbox" value="<%= deal.id %>"></td>
+				<td><a href="<%= deal_path(deal) %>" target="_blank"><strong>
+					<% case deal.state %>
+					<% when 1 %>
+						<font color="#ff0000"><%= deal.title %></font>
+					<% when 2 %>
+						<font style="text-decoration:overline;"><%= deal.title %></font>
+					<% else %>
+						<%= deal.title %>
+					<% end %>
+					</strong></a>
+				</td>
+				<td class="Alt"><%= deal.state %></td>
+				<td><%= deal.num_buyers %></td>
+				<td class="Alt"><%= deal.end_time.strftime("%Y-%m-%d %H:%M") if deal.end_time %></td>
 				<td>
 					<a href="<%= edit_admin_deal_path(deal) %>" class="SmallButton">修改</a>
 					<%= link_to '删除', admin_deal_path(deal), :confirm => '确认要删除吗?', :method => :delete, :class => "SmallButton" %>
 				</td>
 			</tr>
 			<% end %>
+			<tr class="Alt">
+				<td colspan="3">
+					<input type="button" name="selectAll" value="全选" onclick="CheckAll(vbform,'deal_ids[]');" class="SmallButton">
+					<input type="button" name="selectOther" value="反选" onclick="CheckOthers(vbform,'deal_ids[]');" class="SmallButton">
+					<input type="submit" name="delete_all" value="全部删除" onclick="return checkForm(vbform);" class="SmallButton">
+				</td>
+				<td colspan="3">
+					<%= will_paginate @deals %>
+				</td>
+			</tr>
 		</tbody>
 	</table>
+	</form>

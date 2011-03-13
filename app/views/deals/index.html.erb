@@ -1,21 +1,85 @@
-<h1>Listing deals</h1>
-
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @deals.each do |deal| %>
-  <tr>
-    <td><%= link_to 'Show', deal %></td>
-    <td><%= link_to 'Edit', edit_deal_path(deal) %></td>
-    <td><%= link_to 'Destroy', deal, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Deal', new_deal_path %>
+	<div class="main_l">
+		<div class="todaydeal">
+			<div class="d_top"><img src="/images/g_bgdealht.png" width="700" height="8" /></div>
+			<div class="d_main">
+				<h1><span>银川</span>今日团购: <%= @re_deal.title %></h1>
+				<div class="dealinfo clearfix">
+					<div class="deal_l">
+						<div class="buybox">
+							<div class="buy clearfix">
+								<div class="price" style="text-align:center;font-size:30px;">￥<%= @re_deal.price %></div>
+								<a href="<%= buy_deal_path(@re_deal) %>"><div class="btn_buy"></div></a>
+							</div>
+							<div class="shuzi">
+								<ul>
+									<li>原价<br><h4 title="<%= @re_deal.i_price %>">￥<%= @re_deal.i_price %></h4></li>
+									<li>折扣<br><h3><%= @re_deal.discount %>折</h3></li>
+									<li class="red">节省<br><h3>￥<%= @re_deal.save_money %></h3></li>
+								</ul>
+							</div>
+						</div>
+						<div class="deal_samebox clearfix">
+							<div class="title">
+								距离本次团购结束还有：<br>
+								<span id="time">2天1小时29分19秒</span>
+							</div>
+							<div class="box_r">
+								<img src="/images/hourglass002.gif" width="29" height="50" />
+							</div>
+						</div>
+						<div class="deal_samebox status">
+							<h6>已经有<%= @re_deal.num_buyers %>人购买</h6>
+							<div class="done">
+								<img src="/images/deal-buy-succ.gif" align="absmiddle" width="27" height="28/"> 团购已成功，还可以继续购买...
+							</div>
+							<% if @re_deal.limit==1 %>
+							<div style="padding:0px 10px;color:#ff3300">数量有限，再不抢就来不及啦！</div>
+							<% end %>
+							<div style="color:#666">8点58分达到最低团购人数：<%= @re_deal.low_ps %>人</div>
+						</div>
+					</div>
+					<div class="deal_r">
+						<div class="image">
+							<a href="<%= deal_path(@re_deal) %>" target="_blank">
+								<img src="<%= @re_deal.image %>" alt="<%= @re_deal.title %>">
+							</a>
+						</div>
+						<div class="text"><%= @re_deal.ad_text %></div>
+					</div>
+				</div>
+			</div>
+			<div class="d_bottom">
+			</div>
+		</div>
+		<div class="tuan_list">
+			<% i = 1 %>
+			<% @deals.each do |deal| %>
+			<div class="tuan_ing<% if i%2==0 %> noblank<% end %>">
+				<h2>三八节特惠！仅售9.9元/双！原价21.5元浪莎天鹅绒加档连裤袜两款任选！</h2>
+				<div class="tuan_ing_img">
+					<a href="<%= deal_path(deal) %>" target="_blank"><img src="<%= deal.image %>" width="320" height="240"></a>
+				</div>
+				<div class="tuan_ing_buy">
+					<div class="tuan_ing_tag"></div>
+					<div class="tuan_ing_price">
+						<strong>¥<%= deal.price %></strong>
+						<span><a href="<%= deal_path(deal) %>" target="_blank">查看详情</a></span>
+					</div>
+					<div class="tuan_ing_price_more">
+						<p class="through">原价：<b><%= deal.i_price %>元</b></p>
+						<p>折扣：<b><%= deal.discount %>折</b></p>
+						<p>节省：<b><%= deal.save_money %>元</b></p>
+					</div>
+				</div>
+				<div class="tuan_ing_remain_time" curtime="88244000">
+					<p class="limit_time" id="limit_time"><span><strong>24</strong>时<strong>30</strong>分<strong>22.</strong></span><img src="/images/1.gif"></p>
+					<p class="tuan_ing_buy_number"><strong id="buy-new"><%= deal.num_buyers %></strong>人已购买</p>
+				</div>
+			</div>
+			<% i += 1 %>
+			<% end %>
+		</div>
+	</div>
+	<div class="main_r">
+		<%= render "/partials/side" %>
+	</div>

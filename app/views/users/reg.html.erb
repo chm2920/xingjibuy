@@ -11,7 +11,7 @@
 			</div>
 			<div class="m_main_info" style="padding-left:80px;">
 				<% if @user.errors.any? %>
-				<ul class="errors">
+				<ul class="flash_errors">
 				<% @user.errors.full_messages.each do |msg| %>
 					<li><%= msg %></li>
 				<% end %>

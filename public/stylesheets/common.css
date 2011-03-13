@@ -21,10 +21,10 @@ img{border:0px;}
 h1, h2, h3, h4, h5, h6{margin: 0;padding: 0;}
 input, option, select, textarea, button {font-size: 12px;}
 
-.errors{border: thin solid #8b0000;background: #ffc0cb;padding:15px 20px;width:500px;}
-	.errors li{}
-.info{border: thin solid #ff0;background: #ffe;}
-.warning {border: thin solid #b8860b;background: #ff0;}
+.flash_errors{border: thin solid #8b0000;background: #ffc0cb;padding:15px 20px;width:500px;}
+	.flash_errors li{}
+.flash_info{border: thin solid #ff0;background: #ffe;}
+.flash_warning {border: thin solid #b8860b;background: #ff0;}
 
 /*Some text with <span class="tooltip">info <span>i can has info?</span></span> about a w */
 .tooltip{position: relative;background-color: #ffa;}

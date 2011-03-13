@@ -48,12 +48,14 @@ class UsersController < ApplicationController
   end
   
   def login
+     flash[:notice] = nil
   end
   
   def login_rst
-    @user = User.check_login(params[:users][:email], params[:users][:password])
+    @user = User.check_login(params[:user_id], params[:pwd])
     if @user
       session[:user_id] = @user.id
+      session[:username] = @user.username
       redirect_back
     else
       flash[:notice] = '邮箱地址 或 密码错误.'

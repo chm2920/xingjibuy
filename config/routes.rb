@@ -5,6 +5,9 @@ Xingjibuy::Application.routes.draw do
   get 'kindeditor/images_list'
   post 'kindeditor/upload'
   
+  match "buy/:id" => "buy#index"
+  match "pay" => "buy#pay"
+  
   #get "about"
   match "about" => "about#index"
   match "faq" => "about#faq"
@@ -32,10 +35,11 @@ Xingjibuy::Application.routes.draw do
   namespace :admin do    
     get "dashboard"
     resources :deals
+    post "deals/index"
     resources :users
+    post "users/index"
     resources :run_logs
     post "run_logs/index"
-    post "users/index"
   end
 
   root :to => "start#index"

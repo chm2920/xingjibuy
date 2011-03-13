@@ -10,55 +10,42 @@
 				登录<span style="font-size:14px;font-weight:normal"> 或者 <a href="regn.php">注册</a></span>
 			</div>
 			<div class="m_main_info" style="padding-left:80px;">
-				
-				<form method="m_main_info" action="/users/login_rst" id="login">
+				<% if !flash[:notice].nil? %>
+				<ul class="flash_errors">
+					<li><%= flash[:notice] %></li>
+				</ul>
+				<% end %>
+				<%= form_tag "/users/login_rst" do %>
 				<table style="width:500px;font-size:14px;margin-top:10px" border="0" align="center" cellpadding="0" cellspacing="0">
 					<tbody>
 					<tr>
 						<td height="45" align="left">账号或邮箱：
-						<label style="margin:0px;padding:0px;">
-						<input name="user_id" id="user_id" type="text" title="账号或邮箱" class="kuangaa_login" size="28" value="" style="color: rgb(153, 153, 153); ">
-						</label>
-						<script>
-						$(function(){
-						hint('user_id');
-						})
-						</script>
+							<label style="margin:0px;padding:0px;">
+								<input name="user_id" id="user_id" type="text" title="账号或邮箱" class="iInput" size="28" value="" style="color: rgb(153, 153, 153); ">
+							</label>
 						</td>
 					</tr>
 					<tr>
 						<td height="45" align="left">密　　　码：
-						<input name="pwd" id="pwd" type="password" class="kuangaa_login" value="" size="28" autocomplete="off"> <span style="font-size:12px;"><a href="retrieve_pwd.php">忘记密码?</a></span>
-						</td>
-					</tr>
-				
-					<tr>
-						<td height="45" align="left">验&nbsp;&nbsp;&nbsp;&nbsp;证&nbsp;&nbsp;&nbsp;码：
-						<input type="text" name="yan" id="yan" size="4" maxlength="4" class="kuangaa_login" style="width:60px;"> <img src="/need/code.php" name="chkimg" width="65px" height="20px" align="absmiddle" id="chkimg"> <span onclick="cimg()" style="cursor:pointer;font-size:12px;">看不清，换一张</span>
-						<script>
-						function cimg(){
-						var changetime =new Date().getTime();
-						document.getElementById('chkimg').src='/need/code.php?'+changetime;
-						}
-						</script>
+						<input name="pwd" id="pwd" type="password" class="iInput" value="" size="28" autocomplete="off"> <span style="font-size:12px;"><a href="/retrieve_pwd">忘记密码?</a></span>
 						</td>
 					</tr>
 					<tr>
 						<td style="padding-left:75px">
-						<input type="checkbox" name="save_pwd" checked="checked" value="on">
-						<span style="color:#666;font-size:12px;">下次自动登录</span>
+							<input type="checkbox" name="save_pwd" checked="checked" value="on">
+							<span style="color:#666;font-size:12px;">下次自动登录</span>
 						</td>
 					</tr>
 					<tr>
 						<td>
 						<div style="padding-left:80px;margin-left:10px;padding-top:20px;padding-bottom:25px">
-							<label><input name="submit" type="submit" class="zcbt gdbtn" value="登录"></label>
+							<label><input name="submit" type="submit" class="btn_common btn_reg" value="登录"></label>
 						</div>
 						</td>
 					</tr>
 					</tbody>
 				</table>
-				</form>
+				<% end %>
 			</div>
 		</div>
 		<div class="m_bottom">
@@ -70,8 +57,8 @@
 	<div class="ycsamebox" style="margin-top:10px;">
 		<div class="d_top"></div>
 		<div class="d_main clearfix" style="padding:10px 20px 10px 20px">
-			<div class="title">还没有拉手账户？</div>
-			<div class="txt">立即<a href="regn.php">注册</a>，仅需30秒！</div>
+			<div class="title">还没有星吉团账户？</div>
+			<div class="txt">立即<a href="/reg">注册</a>，仅需30秒！</div>
 		</div>
 		<div class="d_bottom"><img src="/images/bg_ycbom_n.png"></div>
 	</div>

@@ -1,6 +1,6 @@
 class Admin::AdminBackEndController < ApplicationController
   
-  #before_filter :require_admin
+  before_filter :require_admin
   
   layout "admin_back_end"
   

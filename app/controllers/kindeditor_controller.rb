@@ -11,8 +11,7 @@ class KindeditorController < ApplicationController
   end  
 
   def images_list 
-    
-   @images=KindeditorImage.order(order_param)
+    @images=KindeditorImage.order(order_param)
     @json = []  
     for image in @images  
       temp =  %Q/{"filesize" : #{image.data.size},  
