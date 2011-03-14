@@ -41,7 +41,9 @@ Xingjibuy::Application.routes.draw do
     resources :run_logs
     post "run_logs/index"
   end
-
+  
   root :to => "start#index"
+  
+  match "*path" => "application#render_not_found"
   
 end
