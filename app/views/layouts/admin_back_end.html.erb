@@ -24,7 +24,7 @@
 		   		<div class="Box Group Dashboard<% if @box=="Dashboard" %> Active<% end %>">
 					<h4><a href="/admin">管理</a></h4>
 				</div>
-				<div class="Box Group Appearance<% if @box=="Appearance" %> Active<% end %>">
+				<div class="Box Group Deal<% if @box=="Deal" %> Active<% end %>">
 					<h4>内容管理</h4>
 					<ul class="PanelInfo">
 						<li<% if @li=="deal_new" %> class="Active"<% end %>><a href="/admin/deals/new">新团</a></li>
@@ -37,15 +37,15 @@
 						<li<% if @li=="users" %> class="Active"<% end %>><a href="/admin/users">用户</a></li>
 					</ul>
 				</div>
-				<div class="Box Group SiteSettings<% if @box=="SiteSettings" %> Active<% end %>">
-					<h4>设置</h4>
+				<div class="Box Group Orders<% if @box=="Orders" %> Active<% end %>">
+					<h4>订单</h4>
 					<ul class="PanelInfo">
-						<li<% if @li=="nodes" %> class="Active"<% end %>><a href="/admin/nodes">大类</a></li>
-						<li<% if @li=="topic_categories" %> class="Active"<% end %>><a href="/admin/topic_categories">小类</a></li>
+						<li<% if @li=="orders" %> class="Active"<% end %>><a href="/admin/orders">订单</a></li>
+						<li<% if @li=="carts" %> class="Active"<% end %>><a href="/admin/carts">购物车</a></li>
 					</ul>
 				</div>
 				<div class="Box Group RunLogs<% if @box=="RunLogs" %> Active<% end %>">
-					<h4>设置</h4>
+					<h4>日志</h4>
 					<ul class="PanelInfo">
 						<li<% if @li=="run_logs" %> class="Active"<% end %>><a href="/admin/run_logs">日志</a></li>
 					</ul>

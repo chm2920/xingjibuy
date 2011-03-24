@@ -10,7 +10,34 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110311024635) do
+ActiveRecord::Schema.define(:version => 20110317124524) do
+
+  create_table "addresses", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "username"
+    t.string   "city"
+    t.string   "street"
+    t.string   "postcode"
+    t.string   "mobile"
+    t.string   "phone"
+    t.string   "deliveryType"
+    t.string   "remark"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "cart_items", :force => true do |t|
+    t.integer "cart_id"
+    t.integer "deal_id"
+    t.integer "quantity", :default => 1, :null => false
+  end
+
+  create_table "carts", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "deals", :force => true do |t|
     t.string   "title"
@@ -37,6 +64,24 @@ ActiveRecord::Schema.define(:version => 20110311024635) do
     t.string   "data_content_type"
     t.integer  "data_file_size"
     t.datetime "data_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "order_items", :force => true do |t|
+    t.integer "order_id"
+    t.integer "deal_id"
+    t.integer "quantity", :default => 0, :null => false
+  end
+
+  create_table "orders", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "address_id"
+    t.string   "deliver_time"
+    t.string   "sign"
+    t.integer  "freight"
+    t.integer  "total_money"
+    t.integer  "status",       :default => 0, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

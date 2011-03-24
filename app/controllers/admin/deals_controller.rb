@@ -15,7 +15,7 @@ class Admin::DealsController < Admin::AdminBackEndController
 
   def new
     @deal = Deal.new
-    set_panel_active("SiteSettings", "deal_new")
+    set_panel_active("Deal", "deal_new")
   end
 
   def edit
@@ -49,7 +49,7 @@ class Admin::DealsController < Admin::AdminBackEndController
 private
 
   def set_cur_panel_active
-    set_panel_active("SiteSettings", "deals")
+    set_panel_active("Deal", "deals")
   end
   
 end

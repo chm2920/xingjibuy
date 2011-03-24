@@ -65,4 +65,9 @@ input, option, select, textarea, button {font-size: 12px;}
 		.FootLogo{float:right;margin-top:50px;margin-right:20px;_margin-right:10px;}
 		#Foot .copy{text-align:center;padding-top:26px;}
 
+.buy_steps{}
+	.buy_steps li{line-height:38px;height:38px;}
+	.buy_steps .step{padding-left:36px;font-size:14px;font-weight:normal;}
+	.buy_steps .current_step{color:#FF6600;font-weight:bold;}
+	.buy_steps .step_s{padding-left:80px;font-size:14px;}
 	

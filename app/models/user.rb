@@ -63,6 +63,7 @@ class User < ActiveRecord::Base
 
   def generate_salt
     encrypted_password(self.email + self.last_login_at.strftime("%h%s").to_s + "xingjibuy")
+    # self.object_id.to_s + rand.to_s
   end
   
   def encrypted_password(password)

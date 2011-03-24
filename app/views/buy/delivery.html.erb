@@ -1,0 +1,200 @@
+<script type="text/javascript">
+var cities = new Array();
+cities[0] = ["320", "银川市", "750000"];
+cities[1] = ["321", "石嘴山市", "753000"];
+cities[2] = ["322", "吴忠市", "751100"];
+cities[3] = ["323", "固原市", "756000"];
+cities[4] = ["324", "中卫市", "751700"];
+
+var districts = new Array();
+districts[0] = ["320", "兴庆区"];
+districts[1] = ["320", "西夏区"];
+districts[2] = ["320", "金凤区"];
+districts[3] = ["320", "永宁县"];
+districts[4] = ["320", "贺兰县"];
+districts[5] = ["320", "灵武市"];
+
+districts[6] = ["321", "大武口区"];
+districts[7] = ["321", "惠农区"];
+districts[8] = ["321", "平罗县"];
+
+districts[9] = ["322", "利通区"];
+districts[10] = ["322", "盐池县"];
+districts[11] = ["322", "同心县"];
+districts[12] = ["322", "青铜峡市"];
+
+districts[13] = ["323", "原州区"];
+districts[14] = ["323", "西吉县"];
+districts[15] = ["323", "隆德县"];
+districts[16] = ["323", "泾源县"];
+districts[17] = ["323", "彭阳县"];
+
+districts[18] = ["324", "沙坡头区"];
+districts[19] = ["324", "中宁县"];
+districts[20] = ["324", "海原县"];
+
+function init(){
+	var options = "";
+	var l = cities.length;
+	for(var i=0;i<l;i++){
+		options += "<option value=" + cities[i][1] + ">" + cities[i][1] + "</option>";
+	}
+	document.getElementById("cities").innerHTML = options;
+	options = "";
+	l = districts.length;
+	for(var i=0;i<l;i++){
+		if(districts[i][0]=="320"){
+			options += "<option value=" + districts[i][1] + ">" + districts[i][1] + "</option>";
+		}
+	}
+	document.getElementById("districts").innerHTML = options;
+	document.getElementById("postalcode").value = cities[0][2];
+}
+function changeSel(t){
+	var options = "";
+	var v = "320";
+	var l = cities.length;
+	for(var i=0;i<l;i++){
+		if(cities[i][1]==t.value){
+			v = cities[i][0];
+			document.getElementById("postalcode").value = cities[i][2];
+		}
+	}
+	var l = districts.length;
+	for(var i=0;i<l;i++){
+		if(districts[i][0]==v	){
+			options += "<option value=" + districts[i][1] + ">" + districts[i][1] + "</option>";
+		}
+	}
+	document.getElementById("districts").innerHTML = options;
+}
+window.onload = function(){
+	init();
+}
+</script>
+
+<style>
+.order-table td{height:30px;line-height:30px;}
+.lftopn{width:90px;}
+.delivery{height:30px;line-height:30px;font-size:14px;font-weight:bold;}
+.delivery-type li{height:30px;line-height:30px;}
+</style>
+<div class="main_l">
+	<div class="common_box">
+		<div class="m_top">
+			<img src="/images/bg_scodtop.png">
+		</div>
+		<div class="m_main">
+			<div class="m_main_title">
+				填写配送信息
+			</div>
+			<div class="m_main_info">
+				<% if @address.errors.any? %>
+				<ul class="flash_errors">
+				<% @address.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+				</ul>
+				<% end %>
+				<%= form_tag "/record_delivery" do |f| %>
+				<div class="psbox">
+					<div class="tttle">配送信息</div>
+					<table class="order-table" id="address_table" style="display:block">            	
+						<tbody>
+						<tr>
+							<td class="lftopn">收货人姓名*</td>
+							<td colspan="5" style="text-align:left"><input type="text" class="f-input" id="receiver_name" name="receiverName" size="20"></td>
+						</tr>
+						<tr>
+							<td class="lftopn">市区*</td>
+							<td colspan="5" style="text-align:left">
+								<select id="cities" class="f-input" name="city" onchange="changeSel(this)" title="区市">
+									<option value="">市</option>
+								</select>
+								<select id="districts" class="f-input" name="district" title="区市">
+									<option value="">区</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td class="lftopn">街道地址*</td>
+							<td colspan="5" style="text-align:left">
+								<input type="text" class="f-input" id="settings-address" name="street" size="80">
+							</td>
+						</tr>
+						<tr>
+							<td class="lftopn">邮编*</td>
+							<td colspan="5" style="text-align:left">
+								<input type="text" class="f-input" id="postalcode" name="postcode" size="10">
+							</td>
+						</tr>                
+						<tr>
+							<td class="lftopn">手机</td>
+							<td colspan="5" style="text-align:left">
+								<input type="text" class="f-input" id="hp" name="mobile" size="20">
+								<span style="margin-left: 10px; float: none;" class="hint">手机电话至少填一个</span>
+							</td>
+						</tr>
+						<tr>
+							<td class="lftopn">电话</td>
+							<td colspan="5" style="text-align:left">
+								<input type="text" class="f-input" id="phone_area" name="phone_area" size="5"> - 
+								<input type="text" class="f-input" id="phone_number" name="phone_number" size="10"> -
+								<input type="text" class="f-input" id="phone_ext" name="phone_ext" size="5">
+								<input type="hidden" id="telephone" name="telephone">
+							</td>
+						</tr>
+						<!--tr>
+							<td class="lftopn"></td>
+							<td colspan="3" style="text-align:left">
+								<a onclick="addNewAddress();" href="#none">[添加到常用地址]</a>
+							</td>
+							<td colspan="2">
+								<span id="addrTmp" style="color:red"></span>
+							</td>
+						</tr-->			                
+						</tbody>
+					</table>
+					<h3 class="delivery">请选择希望送货的时间：</h3>
+					<ul class="delivery-type">
+						<li>
+							<input type="radio" name="deliveryType" value="21" id="deliveryType-21" checked="checked" class="f-radio">
+							<label for="deliveryType-21">只工作日送货(双休日、假日不用送) (注：写字楼/商用地址客户请选择)</label>
+						</li>
+						<li>
+							<input type="radio" name="deliveryType" value="22" id="deliveryType-22" class="f-radio">
+							<label for="deliveryType-22">只双休日、假日送货(工作日不用送)</label>
+						</li>
+						<li>
+							<input type="radio" name="deliveryType" value="23" id="deliveryType-23" class="f-radio">
+							<label for="deliveryType-23">学校地址/地址白天没人，请尽量安排其他时间送货 (注：特别安排可能会超出预计送货天数)</label>
+						</li>
+						<li>
+							<input type="radio" name="deliveryType" value="24" id="deliveryType-24" class="f-radio">
+							<label for="deliveryType-24">工作日、双休日与假日均可送货</label>
+						</li>
+					</ul>
+					<table class="order-table">
+						<tbody>
+						<tr class="order-total">
+						  <td class="deal-buy-desc" style="width:100px"><strong>备注信息</strong></td>
+						  <td class="deal-buy-quantity" colspan="4" style="text-align:left">
+								<input type="input" class="f-input" name="remark" value="" style="width:300px;">
+						  </td>
+						  <td class="deal-buy-total"></td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="zfbox"><input class="btn_common grep_ok" id="" type="submit" value="确认无误，购买"></div>
+				<% end %>
+			</div>
+		</div>
+		<div class="m_bottom">
+			<img src="/images/bg_scodbom.png">
+		</div>
+	</div>
+</div>
+<div class="main_r">
+<%= render "buy_side", :step => 2 %>
+</div>

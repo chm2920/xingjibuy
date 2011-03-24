@@ -2,11 +2,27 @@ class ApplicationController < ActionController::Base
   
   protect_from_forgery
   
-  before_filter :check_user
+  #before_filter :check_user
   
   def check_user
-    
+    if session[:user_id].nil?
+      session[:user_id] = request.remote_ip
+    end
   end
+  
+  def current_cart
+    begin
+      @cart = Cart.find(session[:cart_id])
+    rescue
+      @cart = Cart.new
+      @cart.user_id = session[:user_id] || 2
+      @cart.ip = request.remote_ip
+      @cart.save!
+      session[:cart_id] = @cart
+      @cart
+    end
+  end
+  
 
   def self.rescue_errors
     rescue_from Exception,                            :with => :render_error

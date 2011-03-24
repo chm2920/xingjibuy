@@ -6,6 +6,10 @@ Xingjibuy::Application.routes.draw do
   post 'kindeditor/upload'
   
   match "buy/:id" => "buy#index"
+  match "cart" => "buy#cart"
+  match "record_cart" => "buy#record_cart"
+  match "delivery" => "buy#delivery"
+  match "record_delivery" => "buy#record_delivery"
   match "pay" => "buy#pay"
   
   #get "about"
@@ -40,6 +44,10 @@ Xingjibuy::Application.routes.draw do
     post "users/index"
     resources :run_logs
     post "run_logs/index"
+    resources :orders
+    post "orders/index"
+    resources :carts
+    post "carts/index"
   end
   
   root :to => "start#index"

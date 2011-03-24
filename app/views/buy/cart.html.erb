@@ -1,0 +1,55 @@
+
+
+<div class="main_l">
+	<div class="common_box">
+		<div class="m_top">
+			<img src="/images/bg_scodtop.png">
+		</div>
+		<div class="m_main">
+			<div class="m_main_title">
+				提交订单
+			</div>
+			<div class="m_main_info">
+				<%= form_tag "/record_cart" do |f| %>
+				<table width="100%" border="0" cellpadding="0" cellspacing="0" class="deal_buy">
+					<tbody>
+					<tr>
+						<th class="db_name">名称</th>
+						<th class="db_quantity">数量</th>
+						<th class="db_multi">&nbsp;</th>
+						<th class="db_price">单价</th>
+						<th class="db_equal">&nbsp;</th>
+						<th class="db_total">总价</th>
+					</tr>
+					<% @cart_items.each do |item| %>
+					<tr>
+						<td class="db_name"><%= item.deal.title %></td>
+						<td class="db_quantity">
+							<input id="order_amount" size="5" value="<%= item.quantity %>" name="amount" class="db_input" autocomplete="off">
+						</td>
+						<td class="db_multi">X</td>
+						<td align="center" class="db_price">￥<%= item.deal.price %> </td>
+						<td align="center" class="db_equal">=</td>
+						<td class="db_total">￥<span id="purchase_total"><%= item.deal.price %></span></td>
+					</tr>
+					<% end %>
+					<tr>
+						<td class="db_name red line">商品总额：</td>
+						<td class="db_quantity line" colspan="3">&nbsp;</td>
+						<td align="center" class="db_equal line" style="color:#CC0000">=</td>
+						<td class="db_total red line">￥<span id="purchase_all_total"><%= @cart.total_price %></span></td>
+					</tr>
+					</tbody>
+				</table>
+				<div class="zfbox"><input class="btn_common grep_ok" id="" type="submit" value="确认无误，购买"></div>
+				<% end %>
+			</div>
+		</div>
+		<div class="m_bottom">
+			<img src="/images/bg_scodbom.png">
+		</div>
+	</div>
+</div>
+<div class="main_r">
+<%= render "buy_side", :step => 1 %>
+</div>

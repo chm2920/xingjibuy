@@ -19,5 +19,19 @@ class Deal < ActiveRecord::Base
     :ended => 2,
     :out => 3
   }
+  
+  has_many :cart_items
+  has_many :order_items
+  
+  before_destroy :ensure_not_referenced_by_any_item
+  
+  def ensure_note_referenced_by_any_item
+    if cart_items.count.zero?
+      return true
+    else
+      error[:base] << "Cart Items Present"
+      return false
+    end
+  end
 
 end

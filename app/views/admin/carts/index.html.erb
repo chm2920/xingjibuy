@@ -1,0 +1,58 @@
+
+	<h1>购物车管理</h1>
+	<div class="FilterMenu">
+		<form action="/admin/carts/index" method="post">
+		<p>
+			<input type="text" id="Form_Keywords" name="keyword" value="" class="InputBox">
+			<input type="submit" id="Form_Go" name="Form/Go" value="Go" class="Button">
+		</p>
+		<% if params[:keyword] && params[:keyword]!="" %>
+		<p style="height:30px">搜索：<font color="#FF0000">"<%= params[:keyword] %>"</font></p>
+		<% end %>
+		</form>
+	</div>
+	
+	<form name="vbform" id="vbform" action="/admin/carts/index" method="post">
+	<table id="Deals" class="AltColumns">
+		<thead>
+			<tr>
+				<th>&nbsp;</th>
+				<th>ID</th>
+				<th class="Alt">用户</th>
+				<th>IP</th>
+				<th class="Alt">团购</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @carts.each do |cart| %>
+			<tr class="Alt">
+				<td><input id="cart_ids" name="cart_ids[]" type="checkbox" value="<%= cart.id %>"></td>
+				<td><%= cart.id %></td>
+				<td><strong><%= cart.user.username %></strong></td>
+				<td class="Alt"><%= cart.ip %></td>
+				<td>
+					<ul>
+					<% cart.cart_items.each do |item| %>
+						<li><%= item.deal.title %></li>
+					<% end %>
+					</ul>
+				</td>
+				<td>
+					<%= link_to '删除', admin_cart_path(cart), :confirm => '确认要删除吗?', :method => :delete, :class => "SmallButton" %>
+				</td>
+			</tr>
+			<% end %>
+			<tr class="Alt">
+				<td colspan="3">
+					<input type="button" name="selectAll" value="全选" onclick="CheckAll(vbform,'cart_ids[]');" class="SmallButton">
+					<input type="button" name="selectOther" value="反选" onclick="CheckOthers(vbform,'cart_ids[]');" class="SmallButton">
+					<input type="submit" name="delete_all" value="全部删除" onclick="return checkForm(vbform);" class="SmallButton">
+				</td>
+				<td colspan="3">
+					<%= will_paginate @carts %>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</form>

@@ -43,7 +43,7 @@
 					<li><a href="/">宁夏团购网！银川团购网！</a></li>
 				</ul>
 				<div class="login">
-					<% if session[:user_id] %>
+					<% if session[:username] %>
 					欢迎您，<%= session[:username] %>！<a href="/m/center">个人中心</a><a href="/logout">退出</a>
 					<% else %>
 					<a href="/login">登录</a><a href="/reg">注册</a>
